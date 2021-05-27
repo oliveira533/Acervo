@@ -3,3 +3,11 @@ BODY {
 	font-family: roboto;
 	color: #fff;
 }
+input {
+	display: block;
+}
+form {
+	width: 500px;
+	height: 750px;
+	background-image: url('guitar.png');
+}
