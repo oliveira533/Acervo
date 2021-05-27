@@ -77,8 +77,8 @@ li > a {
 	height: 80px;
 }
 .search {
-	width: 15%;
-	height: 70%;
+	width: 10%;
+	height: auto;
 	border-radius: 200px;
 	margin-right: 0;
 	position: relative;
@@ -104,11 +104,13 @@ p {
 .user {
 	position: relative;
 	top: -10px;
-	margin-left: 300px;
+	margin-left: 0;
 	width: 100px;
 	height: 100px;
 }
 input {
+	position: relative;
+	top: -2vh;
 	height: 50%;
 	font-size: 24px;
 }
@@ -122,8 +124,11 @@ input {
 	top: 10px;
 }
 form {
-	width: 240%;
+	width: 340%;
 	display: block;
 	position: relative;
 	margin-right: 20px;
+}
+header > a {
+	width: 20%;
 }
