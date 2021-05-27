@@ -1,7 +1,6 @@
 body {
 	background-image: linear-gradient(#036483, #428fa0);
-	background-color: 100vw;
-	font-family: sans-serif;
+	font-family: roboto;
 }
 header {
 	border: solid 5px #00ff00;
