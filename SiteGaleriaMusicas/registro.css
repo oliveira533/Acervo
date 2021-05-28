@@ -1,5 +1,5 @@
 BODY {
-	background: linear-gradient(#010f2b, #127fff);
+	background: linear-gradient(#2b0101, #ff1212);
 	font-family: roboto;
 	color: #fff;
 }
@@ -27,7 +27,7 @@ h2 {
 	margin: 0;
 }
 h6 {
-	margin: 0;
+	margin-top: 2px;
 }
 a {
 	color: #fff;
@@ -43,8 +43,8 @@ button {
 	width: 300px;
 	height: 53px;
 	font-size: 22px;
-	background-color: #0a4993;
-	border: solid 5px #03254d;
+	background-color: #d00000;
+	border: solid 5px #160000;
 	color: #fff;
 }
 img {
