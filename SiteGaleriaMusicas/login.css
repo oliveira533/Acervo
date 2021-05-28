@@ -12,7 +12,7 @@ form {
 	width: 1000px;
 	height: 700px;
 	font-size: 36px;
-	background-image: url('guitar.png');
+	background-image: url('./images/guitar.png');
 	background-repeat: no-repeat;
 	text-align: center;
 	border: solid 15px #fff;
@@ -46,4 +46,7 @@ button {
 	background-color: #0a4993;
 	border: solid 5px #03254d;
 	color: #fff;
+}
+img {
+	width: 100px;
 }
