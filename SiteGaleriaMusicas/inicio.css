@@ -1,0 +1,134 @@
+body {
+	background-image: linear-gradient(#036483, #428fa0);
+	font-family: roboto;
+}
+header {
+	border: solid 5px #00ff00;
+	height: 85px;
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: row;
+}
+div {
+	border: solid 2px #ff00ff;
+	height: 24vw;
+	padding-top: 5px;
+	margin-bottom: 10px;
+	padding: 1px;
+	display: flex;
+	flex-direction: row;
+}
+article {
+	border: solid 2px #ff0000;
+	height: 70%;
+	width: 65%;
+	position: relative;
+	left: 12.5%;
+	font-size: 24px;
+	margin: 4px;
+}
+footer {
+	border: solid 2px #0000ff;
+	height: 15%;
+	width: 99%;
+	font-size: 24px;
+}
+section {
+	border: solid 2px #ffff00;
+	width: 20%;
+	height: 70%;
+	position: relative;
+	left: 12.75%;
+	font-size: 48px;
+	text-align: center;
+	margin: 4px;
+}
+img {
+	width: 80%;
+	height: 80%;
+	margin-left: 19.5%;
+}
+ul {
+	list-style: none;
+}
+li {
+	display: inline-block;
+	border: solid 2px #0000ff;
+	width: 24%;
+	height: 90%;
+}
+span {
+	color: #ffffff;
+	position: relative;
+	top: 29.5%;
+}
+li > a {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: #000000;
+	background-color: #02066f8e;
+	font-weight: bold;
+}
+.logo {
+	display: inline-block;
+	margin-left: 0px;
+	width: 90px;
+	height: 80px;
+}
+.search {
+	width: 10%;
+	height: auto;
+	border-radius: 200px;
+	margin-right: 0;
+	position: relative;
+	top: 15px;
+	margin-left: 50px;
+}
+
+header > a > img {
+	position: relative;
+	top: 10px;
+}
+p {
+	position: relative;
+	top: 11px;
+	background-color: #c4c4c4;
+	height: 70%;
+	width: 200%;
+	text-align: center;
+	margin: 0px;
+	margin-left: 20%;
+	font-size: 28px;
+}
+.user {
+	position: relative;
+	top: -10px;
+	margin-left: 0;
+	width: 100px;
+	height: 100px;
+}
+input {
+	position: relative;
+	top: -2vh;
+	height: 50%;
+	font-size: 24px;
+}
+
+.username {
+	text-decoration: none;
+	margin: 5px;
+	color: #000000;
+	font-size: 24px;
+	position: relative;
+	top: 10px;
+}
+form {
+	width: 340%;
+	display: block;
+	position: relative;
+	margin-right: 20px;
+}
+header > a {
+	width: 20%;
+}
