@@ -1,0 +1,40 @@
+*{
+    border: 0;
+}
+.musicas {
+    border: solid 2px #f00;
+    background: #27a578;
+}
+.descricao {
+    border: solid 2px #0f0;
+    background: #00022e;
+}
+.margin {
+    padding-top: 1%;
+}
+li {
+    list-style: none;
+    font-size: 30px;
+}
+ul {
+    text-align: center;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #27a578;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #000453;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00022e;
+  }
