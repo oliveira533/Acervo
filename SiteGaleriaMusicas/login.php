@@ -8,8 +8,10 @@ $oUsuarios = mysqli_query($oCon, $cSQL);
 
 //echo $cSQL;
 
-if($vReg = mysqli_fetch_assoc($oUsuarios))
+if($vReg = mysqli_fetch_assoc($oUsuarios)){
 	echo $vReg['USRNOME'];
+	$_SESSION['USRCODIGO'] = $vReg['USRCODIGO']
+}
 else
 	echo 'Usuário ou senha incorretos';
 
