@@ -89,6 +89,11 @@ height: 100%;
     margin-right: 4%;
     margin-left: 7.5%;
 }
+textarea{
+    background-color: #0F9A68;
+    width: 100%;
+    resize: none;
+}
 
 
 
