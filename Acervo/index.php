@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+	$bLogin = isset($_SESSION['USRCODIGO']);
+?>
+?>
 <html>
 	<head>
 		<link rel="stylesheet" href="inicio.css" />
@@ -21,7 +26,9 @@
 			<a href="login.htm">
 				<image
 					class="user"
-					src="https://img.icons8.com/ios-filled/452/login-as-user.png"
+					
+					src="<?php if($bLogin)echo "./images/logado.svg";
+						else echo "./images/deslogado.svg"  ?>"
 			/></a>
 			<a href="login.htm" class="username">Usuário</a>
 		</header>
