@@ -4,24 +4,44 @@
 			<link rel="stylesheet" href="registro.css" />
 			<meta charset="UTF-8">
 		</head>
-        <form action="registro.css">
+        <form action="registro.php">
 			<p>
 				<h2>Registro</h2>
 				
 				<h6>Insira os seus dados de registro</h6>
 			</p>
-            <label for="txbCadEmail">Email</label>
+            <label for="txbEmail">Email</label>
 			<input type="email" name="txbCadEmail" id="txbCadEmail" />
-			<label for="txbCadUser"> Username </label>
+
+			<label for="txbLogin"> Login </label>
+			<input type="text" name="txbCadLogin" id="txbCadLogin" />
+
+			<label for="txbUser"> Username </label>
 			<input type="text" name="txbCadUser" id="txbCadUser" />
-			<label for="txbCadSenha"> Senha:</label>
+
+
+			<label for="txbSenha"> Senha:</label>
 			<input type="password" name="txbCadSenha" id="txbCadSenha" />
-            <label for="txbCadConfSenha">Confirme sua senha:</label>
+
+            <label for="txbConfSenha">Confirme sua senha:</label>
 			<input type="password" name="txbCadConfSenha" id="txbCadConfSenha" />
+
 			<button type="submit">Enviar</button><br>
 			<h5>Já tem uma conta? </h5> <a href="login.htm">Faça login!</a>
 		</form>
 		<a href="index.php">
 			<img src="./images/home.png" >
 	</body>
+	<script>
+		const oSenha1 = document.getElementById("txbSenha"),
+			oSenha2 = document.getElementById("txbConfSenha");
+		function fnVerifica(){
+			if(oSenha1.value != oSenha2.value)
+				oSenha2.setCustomValidity("As senhas não são iguais!");
+			else 
+				oSenha2.setCustomValidity('');
+		}
+		oSenha1.onchange = fnVerifica;
+		oSenha2.onchange = fnVerifica;
+	</script>
 </html>
