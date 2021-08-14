@@ -36,5 +36,8 @@
                 <label>Album</label>
             </div>        
         </div>
+        <a href="index.php">
+			<img src="./images/home.png" >
+		</a>
     </body>
 </html>
