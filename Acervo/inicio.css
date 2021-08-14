@@ -3,14 +3,12 @@ body {
 	font-family: roboto;
 }
 header {
-	border: solid 5px #00ff00;
 	height: 85px;
 	margin-bottom: 50px;
 	display: flex;
 	flex-direction: row;
 }
 div {
-	border: solid 2px #ff00ff;
 	height: 24vw;
 	padding-top: 5px;
 	margin-bottom: 10px;
@@ -19,7 +17,6 @@ div {
 	flex-direction: row;
 }
 article {
-	border: solid 2px #ff0000;
 	height: 70%;
 	width: 65%;
 	position: relative;
@@ -28,18 +25,16 @@ article {
 	margin: 4px;
 }
 footer {
-	border: solid 2px #0000ff;
 	height: 15%;
 	width: 99%;
 	font-size: 24px;
 }
 section {
-	border: solid 2px #ffff00;
 	width: 20%;
 	height: 70%;
 	position: relative;
-	left: 12.75%;
-	font-size: 48px;
+
+	font-size: 300%;
 	text-align: center;
 	margin: 4px;
 }

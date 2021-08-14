@@ -10,9 +10,10 @@ form {
 	margin-top: 100px;
 	margin-left: 17.5vw;
 	width: 1000px;
-	height: 700px;
+	height: 800px;
 	font-size: 36px;
 	background-image: url('./images/guitar.png');
+	background-size: cover;
 	background-repeat: no-repeat;
 	text-align: center;
 	border: solid 15px #fff;
@@ -28,6 +29,7 @@ h2 {
 }
 h6 {
 	margin-top: 2px;
+	margin-bottom: 5px;
 }
 a {
 	color: #fff;

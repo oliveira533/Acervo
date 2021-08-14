@@ -2,6 +2,8 @@
 	<body>
 		<head>
 			<link rel="stylesheet" href="login.css" />
+			<title>Login</title>
+			<meta charset="UTF-8">
 		</head>
 		<form action="login.php">
 			<p>
@@ -17,8 +19,12 @@
 			<button type="submit">Enviar</button><br>
 			<h5>Ainda não tem uma conta? </h5> <a href="registro.htm">Se Registre!</a>
 		</form>
-		<a href="inicio.htm">
+		<a href="index.php">
 			<img src="./images/home.png" >
 		</a>
 	</body>
+	<script>
+		const oUrl = window.location.search;
+		oUrl == "?errado=true"? setTimeout(() => alert("ERRO: USUARIO NÃO ENCONTRADO!"), 100) : 0;
+	</script>
 </html>
