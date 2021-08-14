@@ -33,6 +33,7 @@ section {
 	width: 20%;
 	height: 70%;
 	position: relative;
+
 	font-size: 48px;
 	text-align: center;
 	margin: 4px;
@@ -47,12 +48,14 @@ ul {
 }
 li {
 	display: inline-block;
+	border: solid 2px #0000ff;
 	width: 24%;
 	height: 90%;
 }
 span {
 	color: #ffffff;
 	position: relative;
+	top: 29.5%;
 }
 li > a {
 	display: block;
