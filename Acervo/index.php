@@ -2,7 +2,7 @@
 	session_start();
 	$bLogin = isset($_SESSION['USRCODIGO']);
 ?>
-?>
+
 <html>
 	<head>
 		<link rel="stylesheet" href="inicio.css" />
@@ -26,7 +26,6 @@
 			<a href="login.htm">
 				<image
 					class="user"
-					
 					src="<?php if($bLogin)echo "./images/logado.svg";
 						else echo "./images/deslogado.svg"  ?>"
 			/></a>
@@ -46,7 +45,7 @@
 
 		<div class="boxMusic">
 			<section>
-				<span>Suas <br />Favoritos</span>
+				<span>Seus <br />Favoritos</span>
 			</section>
 			<article>
 				<ul>
