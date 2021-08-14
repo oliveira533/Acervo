@@ -69,5 +69,6 @@
 				</ul>
 			</article>
 		</div>
+	<a href="deslogar.php">Deslogar</a>
 	</body>
 </html>
