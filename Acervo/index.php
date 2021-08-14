@@ -6,6 +6,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="inicio.css" />
+		<link rel="stylesheet" href="bootstrap.min.css">
 		<meta charset="UTF-8">
 	</head>
 	<body>
