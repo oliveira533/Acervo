@@ -19,7 +19,7 @@
 				<input
 					type="image"
 					class="search"
-					src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/1200px-Vector_search_icon.svg.png"
+					src="./images/Lupa.svg"
 				/>
 				<input name="txbPesquisa" id="txbPesquisa" />
 			</form>
@@ -38,7 +38,7 @@
 					</a>
 		</header>
 		<div class="boxMusic">
-			<section><span>Os seus mais Escutados</span></section>
+			<section><span><?php echo($bLogin)? "Os seus albuns mais escutados": "Os albums mais escutados do momento" ?></span></section>
 			<article>
 				<ul>
 					<li><img src="#" /> <a href="album.htm">Salve</a></li>
@@ -51,7 +51,7 @@
 
 		<div class="boxMusic">
 			<section>
-				<span>Seus <br />Favoritos</span>
+				<span><?php echo($bLogin)? "Os seus albuns favoritos": "Albuns favoritos da galera"?></span>
 			</section>
 			<article>
 				<ul>
@@ -64,7 +64,7 @@
 		</div>
 
 		<div class="boxMusic">
-			<section><span>Seus Menos Escutados</span></section>
+			<section><span><?php echo($bLogin)? "Os seus albuns menos escutados": "De uma chance a albuns novos!"?></span></section>
 			<article>
 				<ul>
 					<li><img src="#" /> <a href="album.htm">Salve</a></li>
