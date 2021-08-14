@@ -20,6 +20,7 @@
                     <option class="options" value="album">Album</option>
                     <option class="options" value="gravadora">Gravadora</option>
                     <option class="options" value="instrumentos">Instrumentos</option>
+                    <option class="options" value="Midias">Midias</option>
                 </select>
             </nav>
             <div>
