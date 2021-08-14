@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+}
+ul{
+    background: #00022e;
+    list-style: none;
+}
+a{
+    width: 50px;
+    text-decoration: none;
+    color: #fff;
+}
+li{
+    color: #fff;
+}
+.nav{
+    background: #00022e;
+    display: inline;
+}
+ul li{
+    display: inline;
+}
