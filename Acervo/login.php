@@ -1,5 +1,5 @@
 <?php
-$conexao = mysqli_connect("localhost",/*"Aluno2DS","SenhaBD2",*/"BANCOCOMUM");
+$conexao = mysqli_connect("localhost","root",'',"BANCOCOMUM");
 $cSQL = "SELECT USRCODIGO, USRNOME" .
         "  FROM USUARIOS" .
         " WHERE '" . $_GET['txbEmail'] . "' IN (USRLOGIN, USREMAIL)" .
