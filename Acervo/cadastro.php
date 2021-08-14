@@ -26,7 +26,7 @@
             </nav>
             <div>
                 <?php 
-                    include("./Cadastros/frmAlbum.php");
+                    include("./Cadastros/frmGenero.php");
                 ?>
             </div>
         </main>
