@@ -9,6 +9,7 @@ $oUsuarios = mysqli_query($conexao, $cSQL);
 
 if($vReg = mysqli_fetch_assoc($oUsuarios)){
         $_SESSION["USRCODIGO"] = $vReg["USRCODIGO"];
+        $_SESSION["USRNOME"] = $vReg["USRNOME"];
         header("location:index.php");
 }
 else

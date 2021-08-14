@@ -23,13 +23,19 @@
 				/>
 				<input name="txbPesquisa" id="txbPesquisa" />
 			</form>
-			<a href="login.htm">
+			<a href="<?php if($bLogin)echo "usuario.php";
+						else echo "login.htm" ?>">
 				<image
 					class="user"
 					src="<?php if($bLogin)echo "./images/logado.svg";
 						else echo "./images/deslogado.svg"  ?>"
 			/></a>
-			<a href="login.htm" class="username">Usuário</a>
+			<a href="<?php if($bLogin)echo "usuario.php";
+					else echo "login.htm" ?>" class="username">
+					
+					<?php if($bLogin)echo $_SESSION["USRNOME"];
+					else echo "Usuario" ?>
+					</a>
 		</header>
 		<div class="boxMusic">
 			<section><span>Os seus mais Escutados</span></section>
