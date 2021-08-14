@@ -2,6 +2,7 @@
 	<body>
 		<head>
 			<link rel="stylesheet" href="login.css" />
+			<title>Login</title>
 			<meta charset="UTF-8">
 		</head>
 		<form action="login.php">
@@ -22,4 +23,8 @@
 			<img src="./images/home.png" >
 		</a>
 	</body>
+	<script>
+		const oUrl = window.location.search;
+		oUrl == "?errado=true"? setTimeout(() => alert("ERRO: USUARIO NÃO ENCONTRADO!"), 100) : 0;
+	</script>
 </html>

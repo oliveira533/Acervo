@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="cadastro.css" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Cadastrar Dados</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Cadastro</title>
     </head>

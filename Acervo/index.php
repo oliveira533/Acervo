@@ -7,6 +7,7 @@
 	<head>
 		<link rel="stylesheet" href="inicio.css" />
 		<link rel="stylesheet" href="bootstrap.min.css">
+		<title>Acervo: Banana de Calcinha</title>
 		<meta charset="UTF-8">
 	</head>
 	<body>

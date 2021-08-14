@@ -13,7 +13,7 @@ if($vReg = mysqli_fetch_assoc($oUsuarios)){
         header("location:index.php");
 }
 else
-	echo 'Usuário ou senha incorretos';
+	header("location:login.htm?errado=true");
 
 mysqli_free_result($oUsuarios);
 mysqli_close($conexao);
