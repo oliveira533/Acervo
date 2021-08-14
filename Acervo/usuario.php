@@ -1,6 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="usuario.css">  
+        <link rel="stylesheet" href="usuario.css"> 
+        <meta charset="UTF-8"> 
     </head>
     <body>
         <nav class="menu aaa">
