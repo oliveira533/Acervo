@@ -9,7 +9,7 @@
 <label>Banda</label><input type="text" name="" id=""><br>
 <label>Artita</label><input type="text" name="" id=""><br>
 <label></label><input type="text" name="" id=""><br>
-<label></label><input type="image" name="" id=""><br>
+<label></label><input type="file" name="" id=""><br>
 <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
 </form>
 </body>
