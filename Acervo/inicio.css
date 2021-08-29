@@ -32,13 +32,13 @@ footer {
 section {
 	width: 20%;
 	height: 70%;
-	font-size: 300%;
+	font-size: 4vh;
 	text-align: center;
 }
 img {
 	width: 80%;
 	height: 80%;
-	margin-left: 19.5%;
+
 }
 ul {
 	list-style: none;
@@ -93,8 +93,7 @@ p {
 	font-size: 28px;
 }
 .user {
-	position: relative;
-	top: -10px;
+
 	margin-left: 0;
 	width: 100px;
 	height: 100px;
