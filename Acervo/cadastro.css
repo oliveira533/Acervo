@@ -1,4 +1,33 @@
+:root{
+    --fonteClara: #fff
+}
 *{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
+}
+input,textarea,select{
+    margin-bottom: 22px;
+    display: block;
+}
+.radio{
+    display: inline;
+}
+label{
+    color: var(--fonteClara);
+
+}
+nav{
+    color: var(--fonteClara);
+}
+h2{
+    color: var(--fonteClara);
+    font-size: 36px;
+}
+select{
+    color: #000;
+}
+body{
+    background-image: linear-gradient(#020024, #00ff77);
+    background-color: #00ff77;
+    background-repeat: no-repeat;
 }

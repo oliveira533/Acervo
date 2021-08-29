@@ -12,8 +12,8 @@ div {
 	height: 24vw;
 	padding-top: 5px;
 	margin-bottom: 10px;
-	padding: 1px;
 	display: flex;
+	flex-wrap: nowrap;
 	flex-direction: row;
 }
 article {
@@ -32,11 +32,8 @@ footer {
 section {
 	width: 20%;
 	height: 70%;
-	position: relative;
-
 	font-size: 300%;
 	text-align: center;
-	margin: 4px;
 }
 img {
 	width: 80%;
@@ -54,8 +51,7 @@ li {
 }
 span {
 	color: #ffffff;
-	position: relative;
-	top: 29.5%;
+
 }
 li > a {
 	display: block;
