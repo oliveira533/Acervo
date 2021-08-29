@@ -57,6 +57,7 @@ li > a {
 	text-align: center;
 	text-decoration: none;
 	color: #000000;
+	border-radius: 10px;
 	background-color: #02066f8e;
 	font-weight: bold;
 }
