@@ -18,7 +18,7 @@ div {
 }
 article {
 	height: 70%;
-	width: 65%;
+	width: 64%;
 	position: relative;
 	left: 12.5%;
 	font-size: 24px;
@@ -30,7 +30,7 @@ footer {
 	font-size: 24px;
 }
 section {
-	width: 20%;
+	width: 23%;
 	height: 70%;
 	font-size: 3vw;
 	text-align: center;
@@ -43,6 +43,7 @@ img {
 ul {
 	list-style: none;
 }
+
 li {
 	display: inline-block;
 	width: 24%;
@@ -60,6 +61,11 @@ li > a {
 	border-radius: 10px;
 	background-color: #02066f8e;
 	font-weight: bold;
+	transition: 0.5s;
+}
+li > a:hover{
+	font-size: 28px;
+	color: #09ffa1;
 }
 .logo {
 	display: inline-block;
@@ -92,10 +98,16 @@ p {
 	margin-left: 0;
 	width: 100%;
 	height: 100%;
+	transition: 0.5s;
+}
+.user:hover{
+	width: 110%;
+	height: 110%;
 }
 input {
 	width: 25vw;
 	font-size: 24px;
+	border-radius: 10px;
 }
 
 .username {
