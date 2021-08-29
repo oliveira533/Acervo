@@ -12,7 +12,7 @@
         <form action="cadastrar.php">
             <div>
                 <label>Nome da música</label>
-                <input placeholder="Nome da música"><br/>
+                <input placeholder="Nome da música" name="txbNome"><br/>
                 <label>Duração</label>
                 <input placeholder="HH/MM/SS"><br/>
                 <label for="txbGenero">Genero</label><select name="txbGenero">

@@ -61,12 +61,22 @@
             //mysqli_query($oCon ,$oQuery);
         }
     }
-    else if( $oForm == "Gravadora"){
+    else if($oForm == "Gravadora"){
         $grvNome = $_GET['txbNome'];
         $grvInin = $_GET['TxbInicio'];
         $grvFim = $_GET['TxbFinal'];
 
         $oQuery = "INSERT INTO GRAVADORAS (GRVNOME, GRVDTFUNDACAO, GRVDTFALENCIA) VALUES ('".$grvNome."','".$grvInin."','".$grvFim."')";
+        echo($oQuery);
+        //mysqli_query($oCon ,$oQuery);
+    }
+    else if($oForm == "Artista"){
+        $artNome = $_GET['txbNome'];
+        $artInicio = $_GET['TxbInicio'];
+        $artFim = $_GET['TxbFinal'];
+        $artDesc = $_GET['txaAtrdesc'];
+
+        $oQuery = "INSERT INTO ARTISTAS (ARTNOME, ARTDTINICIO, ARTDTTERMINO, ATRAPRESENTACAO) VALUES ('".$artNome."', '".$artInicio."', '".$artFim."', '".$artDesc."')";
         echo($oQuery);
         //mysqli_query($oCon ,$oQuery);
     }
