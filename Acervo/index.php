@@ -25,6 +25,7 @@
 				/>
 				<input name="txbPesquisa" id="txbPesquisa" />
 			</form>
+			<nav class="usuario">
 			<a href="<?php if($bLogin)echo "usuario.php";
 						else echo "login.htm" ?>">
 				<image
@@ -38,6 +39,8 @@
 					<?php if($bLogin)echo $_SESSION["USRNOME"];
 					else echo "Usuario" ?>
 					</a>
+			</nav>
+
 		</header>
 		<div class="boxMusic">
 			<section><span><?php echo($bLogin)? "Os seus albuns mais escutados": "Os albums mais escutados do momento" ?></span></section>
