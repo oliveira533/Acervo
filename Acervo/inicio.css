@@ -71,8 +71,6 @@ li > a {
 	width: 10%;
 	height: auto;
 	margin-right: 10px;
-	position: relative;
-	top: 15px;
 	margin-left: 50px;
 }
 
@@ -109,6 +107,9 @@ input {
 	top: 10px;
 }
 form {
+	padding-top: 8px;
+	display: flex;
+	align-items: flex-start;
 	width: 50vw;
 	margin-right: 20px;
 }
