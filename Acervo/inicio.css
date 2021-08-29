@@ -68,8 +68,8 @@ li > a {
 	height: 10vh;
 }
 .search {
-	width: 10%;
-	height: auto;
+	width: auto;
+	height: 80%;
 	margin-right: 10px;
 	margin-left: 50px;
 }
