@@ -3,7 +3,7 @@ body {
 	font-family: roboto;
 }
 header {
-	height: 85px;
+	height: 10vh;
 	margin-bottom: 50px;
 	display: flex;
 	flex-direction: row;
@@ -32,11 +32,11 @@ footer {
 section {
 	width: 20%;
 	height: 70%;
-	font-size: 4vh;
+	font-size: 3vw;
 	text-align: center;
 }
 img {
-	width: 80%;
+	width: 100%;
 	height: 80%;
 
 }
@@ -64,8 +64,8 @@ li > a {
 .logo {
 	display: inline-block;
 	margin-left: 0px;
-	width: 90px;
-	height: 80px;
+	width: 7vw;
+	height: 10vh;
 }
 .search {
 	width: 10%;
@@ -82,8 +82,7 @@ header > a > img {
 	top: 10px;
 }
 p {
-	position: relative;
-	top: 11px;
+	margin-top: 50px;
 	background-color: #c4c4c4;
 	height: 70%;
 	width: 200%;
