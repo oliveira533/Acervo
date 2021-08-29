@@ -9,7 +9,7 @@
         <head>
         <link rel="stylesheet" href="frmMusica.css">
         </head>
-        <form action="./Cadastros/cadastrar.php">
+        <form action="cadastrar.php">
             <div>
                 <label>Nome da música</label>
                 <input placeholder="Nome da música"><br/>
