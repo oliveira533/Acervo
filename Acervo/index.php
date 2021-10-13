@@ -40,10 +40,10 @@ $bLogin = isset($_SESSION['USRCODIGO']);
 		<section><span><?php echo ($bLogin) ? "Os seus albuns mais escutados" : "Os albums mais escutados do momento" ?></span></section>
 		<article>
 			<ul>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
 			</ul>
 		</article>
 	</div>
@@ -54,10 +54,10 @@ $bLogin = isset($_SESSION['USRCODIGO']);
 		</section>
 		<article>
 			<ul>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
 			</ul>
 		</article>
 	</div>
@@ -66,10 +66,10 @@ $bLogin = isset($_SESSION['USRCODIGO']);
 		<section><span><?php echo ($bLogin) ? "Os seus albuns menos escutados" : "De uma chance a albuns novos!" ?></span></section>
 		<article>
 			<ul>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
-				<li><img src="#" /> <a href="album.htm">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<li><img src="#" /> <a href="album.php">Salve</a></li>
 			</ul>
 		</article>
 	</div>

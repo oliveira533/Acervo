@@ -1,3 +1,21 @@
+<?php
+
+function fnEscreve($Nome, $Album, $Duracao)
+{
+    echo "    
+    <div class='musica'>
+        <a href='album.php?album=$Album'>$Nome</a>
+        <p>Album: $Album</p>
+        <p>Duração: $Duracao</p>
+    </div>
+    ";
+}
+
+$conexao = mysqli_connect("localhost", "root", '', "acervo");
+
+$sql = "SELECT MSCCODIGO, MSCNOME, MSCDURACAO, ALBNOME FROM MUSICAS JOIN faixas on FXSMUSICA = MSCCODIGO JOIN albuns ON ALBCODIGO = FXSALBUM WHERE MSCNOME LIKE '%" . $_GET["txbPesquisa"] . "%'";
+$consulta = mysqli_query($conexao, $sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +28,11 @@
 
 <body>
 
+    <?php
+    while ($vReg = mysqli_fetch_assoc($consulta)) {
+        fnEscreve($vReg["MSCNOME"], $vReg["ALBNOME"], $vReg["MSCDURACAO"]);
+    }
+    ?>
 </body>
 
 </html>
