@@ -3,11 +3,8 @@
 session_start();
 $oForm = $_SESSION['form'];
 
-try {
-    $oCon = mysqli_connect("localhost", "Aluno2DS", "SenhaBD2", "ACERVO");
-} catch (Exception $erro) {
-    $oCon = mysqli_connect("localhost", "root", '', "acervo");
-}
+$oCon = mysqli_connect("localhost", "root", '', "acervo");
+
 $oQuery;
 
 if ($oForm == "Genero") {

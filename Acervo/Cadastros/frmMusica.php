@@ -1,10 +1,8 @@
 <?php
 session_start();
-try {
-    $conexao = mysqli_connect("localhost", "Aluno2DS", "SenhaBD2", "ACERVO");
-} catch (Exception $erro) {
-    $conexao = mysqli_connect("localhost", "root", '', "acervo");
-}
+
+$conexao = mysqli_connect("localhost", "root", '', "acervo");
+
 $_SESSION['form'] = "Musica";
 ?>
 

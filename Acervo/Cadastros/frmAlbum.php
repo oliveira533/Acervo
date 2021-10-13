@@ -9,11 +9,9 @@ $_SESSION['form'] = "Album";
         <label for="NoAl">Nome</label><input type="text" name="NoAl" id="NoAl">
         <label fro="txbgravadora">Gravadora</label><select name="txbgravadora">
             <?php
-            try {
-                $conexao = mysqli_connect("localhost", "Aluno2DS", "SenhaBD2", "ACERVO");
-            } catch (Exception $erro) {
-                $conexao = mysqli_connect("localhost", "root", '', "acervo");
-            }
+
+            $conexao = mysqli_connect("localhost", "root", '', "acervo");
+
             $sql = "SELECT GRVCODIGO, GRVNOME FROM GRAVADORAS ORDER BY GRVNOME";
             $consulta = mysqli_query($conexao, $sql);
             while ($vReg = mysqli_fetch_assoc($consulta)) {
