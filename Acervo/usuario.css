@@ -34,9 +34,7 @@ nav ul{
 div{
     display: block;
 }
-img{
-    width: 80px;
-}
+
 button{
     margin-left: 4%;
     font-size: 18px;
@@ -56,18 +54,24 @@ nav{
 }
 .tudo{
     height: 20%;
-    margin-bottom: 4    px;
+    margin-bottom:4px;
+    
     margin-top: 0;
     background: #0F9A68;
     color: #000;
 }
 .card{
-    margin: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 0.5%;
     border: solid 1px;
-    width: 80px;
+    width: 9%;
+    height: 70%;
 }
 .Titulo{
     margin-left: 2%;
+    font-size: 25px;
+
 }
 body{
     background: #00022e;
@@ -76,4 +80,24 @@ body{
 .tudo{
     border: solid 1px;
     margin-top: 0;
+}
+.card label{
+font-size: 20px;
+margin-left: 2.6vw;
+
+margin-top: 0%;
+
+}
+.imgbox{
+    width: 100%;
+    height: 85%;
+    margin-bottom: 0%;
+}
+.imgusu{
+    width: 4vw;
+}
+.imghome{
+    width: 80px;
+    margin-top: 17vh ;
+    margin-bottom: 0;
 }

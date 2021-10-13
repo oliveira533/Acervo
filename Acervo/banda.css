@@ -10,11 +10,11 @@ section{
     flex-direction: row;
 }
 nav{
-    border: solid 2px #0f0;
+   
     position: relative;
 width: 96%;
 height: auto;
-margin-left: 11px;
+
 background: #0F9A68;
 color: black;
 margin-right: 0%;
@@ -32,7 +32,7 @@ top: 954px;
     
     width: 97%;
 height: auto;
-margin-left: 11px;
+
 border: 10px solid #000000;
 box-sizing: border-box;
 }
@@ -40,7 +40,7 @@ article{
     
     width: 99.5%;
     height: 71%;
-    border: solid 2px rgb(255, 230, 0);
+    border: solid 2px black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -69,11 +69,11 @@ header{
 .esquerda
 {width: 29.5vw;
     height: 95vh;
-    border: solid black;
+    
 }
 .direita{
     
-    border: solid red;
+   
     width: 66vw;
     height: 100vh;
 }

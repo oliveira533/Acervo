@@ -5,8 +5,8 @@
 
 <html>
 	<head>
-		<link rel="stylesheet" href="inicio.css" />
 		<link rel="stylesheet" href="bootstrap.min.css">
+		<link rel="stylesheet" href="inicio.css" />
 		<title>Acervo: Banana de Calcinha</title>
 		<meta charset="UTF-8">
 	</head>
@@ -25,11 +25,12 @@
 				/>
 				<input name="txbPesquisa" id="txbPesquisa" />
 			</form>
+			<nav class="usuario">
 			<a href="<?php if($bLogin)echo "usuario.php";
 						else echo "login.htm" ?>">
 				<image
 					class="user"
-					src="<?php if($bLogin)echo "./images/logado.svg";
+					src="<?php if($bLogin)echo "https://avatars.dicebear.com/api/gridy/" . $_SESSION["USRNOME"] . ".svg";
 						else echo "./images/deslogado.svg"  ?>"
 			/></a>
 			<a href="<?php if($bLogin)echo "usuario.php";
@@ -38,6 +39,8 @@
 					<?php if($bLogin)echo $_SESSION["USRNOME"];
 					else echo "Usuario" ?>
 					</a>
+			</nav>
+
 		</header>
 		<div class="boxMusic">
 			<section><span><?php echo($bLogin)? "Os seus albuns mais escutados": "Os albums mais escutados do momento" ?></span></section>

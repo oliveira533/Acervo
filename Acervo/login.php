@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conexao = mysqli_connect("localhost","root",'',"BANCOCOMUM");
+$conexao = mysqli_connect("localhost","Aluno2DS",'SenhaBD2',"ACERVO");
 $cSQL = "SELECT USRCODIGO, USRNOME" .
         "  FROM USUARIOS" .
         " WHERE '" . $_GET['txbEmail'] . "' IN (USRLOGIN, USREMAIL)" .
