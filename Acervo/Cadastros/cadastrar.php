@@ -3,7 +3,7 @@
 session_start();
 $oForm = $_SESSION['form'];
 
-$oCon = mysqli_connect("localhost", "root", '', "acervo");
+$conexao = mysqli_connect("localhost", "root", '', "acervo");
 
 $oQuery;
 
@@ -12,7 +12,7 @@ if ($oForm == "Genero") {
     $oGenDesc = $_GET['txadesc'];
     $oQuery = "INSERT INTO GENEROS (GNRNOME, GNRDESCRICAO) VALUES ('" . $oGenNome . "', '" . $oGenDesc . "')";
     echo ($oQuery);
-    //mysqli_query($oCon ,$oQuery);
+    //mysqli_query($conexao ,$oQuery);
 
 } else if ($oForm == "Album") {
     $oAlbNome = $_GET['NoAl'];
@@ -26,11 +26,11 @@ if ($oForm == "Genero") {
     if ($oAlbBanda == "") {
         $oQuery = "INSERT INTO ALBUNS (ALBNOME, ALBGRAVADORA, ALBGENERO, ALBDTLANCAMENTO, ALBARTISTA, ALBMIDIA) VALUES ('" . $oAlbNome . "','" . $oAlbGrav . "', '" . $oAlbGen . "', '" . $oAlbDtLanc . "', '" . $oAlbArtista . "','" . $oAlMidia . "')";
         echo ($oQuery);
-        //mysqli_query($oCon ,$oQuery);
+        //mysqli_query($conexao ,$oQuery);
     } else {
         $oQuery = "INSERT INTO ALBUNS (ALBNOME, ALBGRAVADORA, ALBGENERO, ALBDTLANCAMENTO, ALBBANDA, ALBMIDIA) VALUES ('" . $oAlbNome . "','" . $oAlbGrav . "', '" . $oAlbGen . "', '" . $oAlbDtLanc . "', '" . $oAlbBanda . "','" . $oAlMidia . "')";
         echo ($oQuery);
-        //mysqli_query($oCon ,$oQuery);
+        //mysqli_query($conexao ,$oQuery);
 
     }
 } else if ($oForm == "Insturmento") {
@@ -39,7 +39,7 @@ if ($oForm == "Genero") {
 
     $oQuery = "INSERT INTO INSTRUMNENTOS (INSNOE, INSTIPO) VALUES ('" . $oInsNome . "', " . $oInsTipo . ")";
     echo ($oQuery);
-    //mysqli_query($oCon ,$oQuery);
+    //mysqli_query($conexao ,$oQuery);
 
 } else if ($oForm == "Midia") {
     $oMdsNome = $_GET['txbNome'];
@@ -49,12 +49,12 @@ if ($oForm == "Genero") {
         $oMdsOnline = 1;
         $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "'. 0)";
         echo "on";
-        //mysqli_query($oCon ,$oQuery);
+        //mysqli_query($conexao ,$oQuery);
     } else {
         $oMdsOnline = 0;
         $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "'. 1)";
         echo "off";
-        //mysqli_query($oCon ,$oQuery);
+        //mysqli_query($conexao ,$oQuery);
     }
 } else if ($oForm == "Gravadora") {
     $grvNome = $_GET['txbNome'];
@@ -63,7 +63,7 @@ if ($oForm == "Genero") {
 
     $oQuery = "INSERT INTO GRAVADORAS (GRVNOME, GRVDTFUNDACAO, GRVDTFALENCIA) VALUES ('" . $grvNome . "','" . $grvInin . "','" . $grvFim . "')";
     echo ($oQuery);
-    //mysqli_query($oCon ,$oQuery);
+    //mysqli_query($conexao ,$oQuery);
 } else if ($oForm == "Artista") {
     $artNome = $_GET['txbNome'];
     $artInicio = $_GET['TxbInicio'];
@@ -72,7 +72,7 @@ if ($oForm == "Genero") {
 
     $oQuery = "INSERT INTO ARTISTAS (ARTNOME, ARTDTINICIO, ARTDTTERMINO, ATRAPRESENTACAO) VALUES ('" . $artNome . "', '" . $artInicio . "', '" . $artFim . "', '" . $artDesc . "')";
     echo ($oQuery);
-    //mysqli_query($oCon ,$oQuery);
+    //mysqli_query($conexao ,$oQuery);
 } else if ($oForm == "Banda") {
     $bndNome = $_GET['txbNome'];
     $bndInicio = $_GET['TxbInicio'];
@@ -81,5 +81,5 @@ if ($oForm == "Genero") {
 
     $oQuery = "INSERT INTO BANDA (BDSNOME, BDSDTINICIO, BDSDTTERMINO, BDSAPRESENTACAO) VALUES ('" . $bndNome . "', '" . $bndInicio . "', '" . $bndFim . "', '" . $bndDesc . "')";
     echo ($oQuery);
-    //mysqli_query($oCon ,$oQuery);
+    //mysqli_query($conexao ,$oQuery);
 }
