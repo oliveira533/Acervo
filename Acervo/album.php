@@ -1,6 +1,9 @@
 <?php
 $conexao = mysqli_connect("localhost", "root", '', "acervo");
-$album = $_GET['album'];
+if (isset($_GET['album']))
+	$album = $_GET['album'];
+else
+	$album = 'Yellow Brick Road';
 $sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), GRVNOME, GNRNOME, MDSNOME FROM ALBUNS JOIN gravadoras ON ALBCODIGO = 
 GRVCODIGO JOIN generos ON ALBGENERO = GNRCODIGO JOIN midias ON ALBMIDIA = MDSCODIGO WHERE ALBNOME LIKE '%$album%'";
 $consulta = mysqli_query($conexao, $sql);
