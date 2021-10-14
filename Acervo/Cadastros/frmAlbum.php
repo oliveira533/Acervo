@@ -15,6 +15,7 @@ $_SESSION['form'] = "Album";
             while ($vReg = mysqli_fetch_assoc($consulta)) {
                 echo "<option value='" . $vReg["GRVCODIGO"] . "'>" . $vReg["GRVNOME"] . "</option>";
             }
+            mysqli_free_result($consulta);
             ?>
         </select>
         <label for="txbgenero">Genero</label><select name="txbgenero">
@@ -24,6 +25,7 @@ $_SESSION['form'] = "Album";
             while ($vReg = mysqli_fetch_assoc($consulta)) {
                 echo "<option value='" . $vReg["GNRCODIGO"] . "'>" . $vReg["GNRNOME"] . "</option>";
             }
+            mysqli_free_result($consulta);
             ?>
         </select>
         <label for="TxbDatadeLancamento">Data de Lançamento</label><input type="date" name="TxbDatadeLancamento">
@@ -38,15 +40,18 @@ $_SESSION['form'] = "Album";
             while ($vReg = mysqli_fetch_assoc($consulta)) {
                 echo "<option value='" . $vReg["BDSCODIGO"] . "'>" . $vReg["BDSNOME"] . "</option>";
             }
+            mysqli_free_result($consulta);
             ?>
         </select>
-        <label class="label" for="slcArtista">Artista</label><select name="slcArtista" id="slcArtista"> <?php
-                                                                                                        $sql = "SELECT ARTCODIGO, ARTNOME FROM ARTISTAS";
-                                                                                                        $consulta = mysqli_query($conexao, $sql);
-                                                                                                        while ($vReg = mysqli_fetch_assoc($consulta)) {
-                                                                                                            echo "<option value='" . $vReg["ARTCODIGO"] . "'>" . $vReg["ARTNOME"] . "</option>";
-                                                                                                        }
-                                                                                                        ?>
+        <label class="label" for="slcArtista">Artista</label><select name="slcArtista" id="slcArtista">
+            <?php
+            $sql = "SELECT ARTCODIGO, ARTNOME FROM ARTISTAS";
+            $consulta = mysqli_query($conexao, $sql);
+            while ($vReg = mysqli_fetch_assoc($consulta)) {
+                echo "<option value='" . $vReg["ARTCODIGO"] . "'>" . $vReg["ARTNOME"] . "</option>";
+            }
+            mysqli_free_result($consulta);
+            ?>
         </select>
         <label for="txbcapa">Imagem da Capa</label><input type="file" name="txbcapa" id="txbcapa" onChange="fnExibeArq(event)">
         <label for="txbmidia">Midia</label><select name="txbmidia">
@@ -56,6 +61,7 @@ $_SESSION['form'] = "Album";
             while ($vReg = mysqli_fetch_assoc($consulta)) {
                 echo "<option value='" . $vReg["MDSCODIGO"] . "'>" . $vReg["MDSNOME"] . "</option>";
             }
+            mysqli_free_result($consulta);
             ?>
         </select>
         <img id="imgPreVis" style="border: solid; width: 50px; height: 50px;" name="txtArquivo">

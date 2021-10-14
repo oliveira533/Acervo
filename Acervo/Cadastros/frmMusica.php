@@ -26,6 +26,7 @@ $_SESSION['form'] = "Musica";
                 while ($vReg = mysqli_fetch_assoc($consulta)) {
                     echo "<option value='" . $vReg["GNRCODIGO"] . "'>" . $vReg["GNRNOME"] . "</option>";
                 }
+                mysqli_free_result($consulta);
                 ?>
             </select><br>
             <label for="txbBanda">Banda</label><select name="txbBanda">
@@ -35,6 +36,7 @@ $_SESSION['form'] = "Musica";
                 while ($vReg = mysqli_fetch_assoc($consulta)) {
                     echo "<option value='" . $vReg["BDSCODIGO"] . "'>" . $vReg["BDSNOME"] . "</option>";
                 }
+                mysqli_free_result($consulta);
                 ?>
             </select><br>
             <label for="txbArtista">Artista</label><select name="txbArtista">
@@ -44,6 +46,7 @@ $_SESSION['form'] = "Musica";
                 while ($vReg = mysqli_fetch_assoc($consulta)) {
                     echo "<option value='" . $vReg["ARTCODIGO"] . "'>" . $vReg["ARTNOME"] . "</option>";
                 }
+                mysqli_free_result($consulta);
                 ?>
             </select><br>
             <label>Letra</label>
