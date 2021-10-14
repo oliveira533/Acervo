@@ -45,7 +45,8 @@ $bLogin = isset($_SESSION['USRCODIGO']);
 				$sql = 'SELECT ALBCODIGO, ALBNOME FROM ALBUNS ORDER BY ALBCODIGO DESC LIMIT 0, 4';
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
-					echo "<li><img src='#' /> <a href='album.php'>Salve</a></li>\n";
+					$nome = $vReg['ALBNOME'];
+					echo "<li><img src='#' /> <a href='album.php?album=$nome'>$nome</a></li>\n";
 				}
 				?>
 			</ul>
