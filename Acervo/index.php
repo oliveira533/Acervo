@@ -1,5 +1,6 @@
 <?php
 session_start();
+$conexao = mysqli_connect("localhost", "root", '', "acervo");
 $bLogin = isset($_SESSION['USRCODIGO']);
 ?>
 
@@ -37,13 +38,16 @@ $bLogin = isset($_SESSION['USRCODIGO']);
 
 	</header>
 	<div class="boxMusic">
-		<section><span><?php echo ($bLogin) ? "Os seus albuns mais escutados" : "Os albums mais escutados do momento" ?></span></section>
+		<section><span>Os albuns mais novos</span></section>
 		<article>
 			<ul>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<?php
+				$sql = 'SELECT ALBCODIGO, ALBNOME FROM ALBUNS ORDER BY ALBCODIGO DESC LIMIT 0, 4';
+				$consulta = mysqli_query($conexao, $sql);
+				while ($vReg = mysqli_fetch_assoc($consulta)) {
+					echo "<li><img src='#' /> <a href='album.php'>Salve</a></li>\n";
+				}
+				?>
 			</ul>
 		</article>
 	</div>
