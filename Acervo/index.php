@@ -5,7 +5,6 @@ require("conexao.php");
 $bLogin = isset($_SESSION['USRCODIGO']);
 $nMaxAlbuns = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT ALBCODIGO FROM ALBUNS ORDER BY ALBCODIGO DESC"))['ALBCODIGO'];
 $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO FROM GENEROS ORDER BY GNRCODIGO DESC"))['GNRCODIGO'];
-echo $nMaxGeneros;
 ?>
 
 <html>
@@ -50,7 +49,7 @@ echo $nMaxGeneros;
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
 					$nome = $vReg['ALBNOME'];
-					echo "<li><img src='#' /> <a href='album.php?album=$nome'>$nome</a></li>\n";
+					echo "<li><img src='#' /> <a href='album.php?album=" . htmlspecialchars($nome) . "'>$nome</a></li>\n";
 				}
 				?>
 			</ul>
@@ -72,7 +71,7 @@ echo $nMaxGeneros;
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
 					$nome = $vReg['ALBNOME'];
-					echo "<li><img src='#' /> <a href='album.php?album=$nome'>$nome</a></li>\n";
+					echo "<li><img src='#' /> <a href='album.php?album=" . htmlspecialchars($nome) . "'>$nome</a></li>\n";
 				}
 				?>
 			</ul>
@@ -104,7 +103,7 @@ echo $nMaxGeneros;
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
 					$nome = $vReg['ALBNOME'];
-					echo "<li><img src='#' /> <a href='album.php?album=$nome'>$nome</a></li>\n";
+					echo "<li><img src='#' /> <a href='album.php?album=" . htmlspecialchars($nome) . "'>$nome</a></li>\n";
 				}
 				?>
 			</ul>

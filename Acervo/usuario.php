@@ -12,8 +12,8 @@ session_start();
 <body>
     <nav class="menu aaa">
         <ul>
-            <li><a href="#" style="color: #333;"><img class="imgusu" src="#"></a></li>
-            <li><a href="cadastro.php" style="color: #333;"><button>Inserir conteúdo</button></a></li>
+            <li><a href="#" style="color: #333;"><img class="imgusu" src="<?php echo "https://avatars.dicebear.com/api/gridy/" . $_SESSION["USRNOME"] . ".svg"; ?>"></a></li>
+            <li><a href=" cadastro.php" style="color: #333;"><button>Inserir conteúdo</button></a></li>
             <li><a href="https://c.tenor.com/MhIARALUqvAAAAAd/ednaldo-pereira-vale-nada.gif" style="color: #333;"><button>Alterar dados</button></a></li>
         </ul>
     </nav>
