@@ -4,8 +4,8 @@ if (isset($_GET['album']))
 	$album = $_GET['album'];
 else
 	$album = 'Yellow Brick Road';
-$sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), GRVNOME, GNRNOME, MDSNOME FROM ALBUNS JOIN gravadoras ON ALBCODIGO = 
-GRVCODIGO JOIN generos ON ALBGENERO = GNRCODIGO JOIN midias ON ALBMIDIA = MDSCODIGO WHERE ALBNOME LIKE '%$album%'";
+$sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), IFNULL(GRVNOME, 'SEM GRAVADORA'), GNRNOME, MDSNOME FROM ALBUNS LEFT JOIN gravadoras ON ALBCODIGO = 
+GRVCODIGO JOIN generos ON ALBGENERO = GNRCODIGO LEFT JOIN midias ON ALBMIDIA = MDSCODIGO WHERE ALBNOME LIKE '%$album%'";
 $consulta = mysqli_query($conexao, $sql);
 $aDados = mysqli_fetch_array($consulta);
 ?>
@@ -32,7 +32,7 @@ $aDados = mysqli_fetch_array($consulta);
 					<img src="#" class="card-img-top" alt="..." />
 					<div class="card-body">
 						<h5 class="card-title"><?php echo $album ?></h5>
-						<p class="card-text margin2">Gravadora<br><?php echo $aDados['GRVNOME'] ?></p>
+						<p class="card-text margin2">Gravadora<br><?php echo $aDados[2] ?></p>
 						<p class="card-text margin2">Genero <br><?php echo $aDados['GNRNOME'] ?></p>
 						<p class="card-text margin2">Midia <br> <?php echo $aDados['MDSNOME'] ?></p>
 						<p class="card-text margin2">data de lançamento <br> <?php echo $aDados[1] ?></p>
