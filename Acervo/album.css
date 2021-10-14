@@ -1,12 +1,13 @@
 * {
 	border: 0;
 }
+body {
+	background: #27a578;
+}
 .musicas {
-	border: solid 2px #f00;
 	background: #27a578;
 }
 .descricao {
-	border: solid 2px #0f0;
 	background: #00022e;
 }
 .margin {

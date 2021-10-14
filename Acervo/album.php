@@ -1,82 +1,72 @@
+<?php
+$conexao = mysqli_connect("localhost", "root", '', "acervo");
+$album = $_GET['album'];
+$sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), GRVNOME, GNRNOME, MDSNOME FROM ALBUNS JOIN gravadoras ON ALBCODIGO = 
+GRVCODIGO JOIN generos ON ALBGENERO = GNRCODIGO JOIN midias ON ALBMIDIA = MDSCODIGO WHERE ALBNOME LIKE '%$album%'";
+$consulta = mysqli_query($conexao, $sql);
+$aDados = mysqli_fetch_array($consulta);
+?>
+
 <html>
-	<head>
-		<link rel="stylesheet" href="album.css" />
-		<title>PLACEHOLDER: ALBUM</title>
-		<link rel="stylesheet" href="bootstrap.min.css" />
-		<meta charset="UTF-8" />
-	</head>
-	<body>
-		<section>
-			<div class="container-fluid">
-				<div class="row">
-					<div
-						class="
+
+<head>
+	<title>Album: <?php echo $album; ?></title>
+	<link rel="stylesheet" href="bootstrap.min.css" />
+	<link rel="stylesheet" href="album.css" />
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<section>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="
 							card
 							margin margin
 							col-3 col-sm-3 col-md-3 col-lg-3
 							descricao
-						"
-						style="background: #00022e; color: #fff"
-					>
-						<img
-							src="https://images-na.ssl-images-amazon.com/images/I/41n50LLG5HL.jpg"
-							class="card-img-top"
-							alt="..."
-						/>
-						<div class="card-body">
-							<h5 class="card-title">Meteora</h5>
-							<p class="card-text">
-								Meteora é o segundo álbum de estúdio da banda
-								americana de rock
-								<a href="banda.htm">Linkin Park</a>, lançado em
-								25 de Março de 2003 na sequência de seu álbum
-								remix Reanimation, que incluiu remixes do seu
-								álbum de estreia Hybrid Theory. A música em
-								Meteora representa mudanças significativas desde
-								o lançamento de Hybrid Theory.
-							</p>
-							<p class="card-text margin2">Gravadora</p>
-							<p class="card-text margin2">Genero</p>
-							<p class="card-text margin2">Midia</p>
-							<p class="card-text margin2">data de lançamento</p>
-							<a href="index.php"
-								><img
-									src="https://www.svgrepo.com/show/40892/home-button.svg"
-									alt=""
-									width="40px"
-							/></a>
-						</div>
+						" style="background: #00022e; color: #fff">
+					<img src="#" class="card-img-top" alt="..." />
+					<div class="card-body">
+						<h5 class="card-title"><?php echo $album ?></h5>
+						<p class="card-text margin2">Gravadora<br><?php echo $aDados['GRVNOME'] ?></p>
+						<p class="card-text margin2">Genero <br><?php echo $aDados['GNRNOME'] ?></p>
+						<p class="card-text margin2">Midia <br> <?php echo $aDados['MDSNOME'] ?></p>
+						<p class="card-text margin2">data de lançamento <br> <?php echo $aDados[1] ?></p>
+						<a href="index.php"><img src="https://www.svgrepo.com/show/40892/home-button.svg" alt="" width="40px" /></a>
 					</div>
-					<div class="col-9 col-sm-9 col-md-9 col-lg-9 musicas">
-						<div class="row">
-							<div class="col-6 col-sm-6 col-md-6 col-lg-6">
-								<ul>
-									<h3>Nome</h3>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-								</ul>
-							</div>
-							<div class="col-6 col-sm-6 col-md-6 col-lg-6">
-								<ul>
-									<h3>Banda</h3>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-									<li>aaaaaaa</li>
-								</ul>
-							</div>
+				</div>
+				<div class="col-9 col-sm-9 col-md-9 col-lg-9 musicas">
+					<div class="row">
+						<div class="col-6 col-sm-6 col-md-6 col-lg-6">
+							<ul>
+								<h3>Musicas</h3>
+								<?php
+								$sql = "SELECT MSCCODIGO, MSCNOME FROM albuns JOIN faixas ON ALBCODIGO = FXSALBUM JOIN musicas on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
+								$consulta = mysqli_query($conexao, $sql);
+								while ($vReg = mysqli_fetch_assoc($consulta)) {
+									echo '<li>' . $vReg['MSCNOME'] . '</li>';
+								}
+								?>
+							</ul>
+						</div>
+						<div class="col-6 col-sm-6 col-md-6 col-lg-6">
+							<ul>
+								<h3>Duração</h3>
+								<?php
+								$sql = "SELECT MSCCODIGO, MSCDURACAO FROM albuns JOIN faixas ON ALBCODIGO = FXSALBUM JOIN musicas on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
+								$consulta = mysqli_query($conexao, $sql);
+								while ($vReg = mysqli_fetch_assoc($consulta)) {
+									echo '<li>' . $vReg['MSCDURACAO'] . '</li>';
+								}
+								?>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-	</body>
+		</div>
+	</section>
+</body>
+
 </html>
