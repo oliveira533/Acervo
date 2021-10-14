@@ -1,7 +1,11 @@
 <?php
+error_reporting(0);
 session_start();
 $conexao = mysqli_connect("localhost", "root", '', "acervo");
 $bLogin = isset($_SESSION['USRCODIGO']);
+$nMaxAlbuns = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT ALBCODIGO FROM ALBUNS ORDER BY ALBCODIGO DESC"))['ALBCODIGO'];
+$nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO FROM GENEROS ORDER BY GNRCODIGO DESC"))['GNRCODIGO'];
+echo $nMaxGeneros;
 ?>
 
 <html>
@@ -55,26 +59,54 @@ $bLogin = isset($_SESSION['USRCODIGO']);
 
 	<div class="boxMusic">
 		<section>
-			<span><?php echo ($bLogin) ? "Os seus albuns favoritos" : "Albuns favoritos da galera" ?></span>
+			<span>Albuns Aleatórios para você</span>
 		</section>
 		<article>
 			<ul>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<?php
+				$num1 = random_int(1, $nMaxAlbuns);
+				$num2 = random_int(1, $nMaxAlbuns);
+				$num3 = random_int(1, $nMaxAlbuns);
+				$num4 = random_int(1, $nMaxAlbuns);
+				$sql = "SELECT ALBCODIGO, ALBNOME FROM ALBUNS WHERE ALBCODIGO = $num1 OR ALBCODIGO = $num2 OR ALBCODIGO = $num3 OR ALBCODIGO = $num4";
+				$consulta = mysqli_query($conexao, $sql);
+				while ($vReg = mysqli_fetch_assoc($consulta)) {
+					$nome = $vReg['ALBNOME'];
+					echo "<li><img src='#' /> <a href='album.php?album=$nome'>$nome</a></li>\n";
+				}
+				?>
 			</ul>
 		</article>
 	</div>
 
 	<div class="boxMusic">
-		<section><span><?php echo ($bLogin) ? "Os seus albuns menos escutados" : "De uma chance a albuns novos!" ?></span></section>
+		<section><span>Albuns Aleatórios de
+				<?php
+				$bGeneroValido = false;
+				while (!$bGeneroValido) {
+					try {
+						$sGenero = mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO, GNRNOME FROM GENEROS WHERE GNRCODIGO LIKE " . random_int(1, $nMaxGeneros)));
+						$nAlbuns = (int)mysqli_fetch_array(mysqli_query($conexao, "SELECT COUNT(ALBCODIGO) FROM ALBUNS WHERE ALBGENERO = " . $sGenero['GNRCODIGO']))[0];
+						if ($nAlbuns >= 4)
+							$bGeneroValido = true;
+					} catch (\Throwable $th) {
+						continue;
+					}
+				}
+
+				echo $sGenero['GNRNOME'] ?>
+			</span>
+		</section>
 		<article>
 			<ul>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
-				<li><img src="#" /> <a href="album.php">Salve</a></li>
+				<?php
+				$sql = "SELECT ALBNOME FROM ALBUNS WHERE ALBGENERO = " . $sGenero["GNRCODIGO"] . " LIMIT 0,4";
+				$consulta = mysqli_query($conexao, $sql);
+				while ($vReg = mysqli_fetch_assoc($consulta)) {
+					$nome = $vReg['ALBNOME'];
+					echo "<li><img src='#' /> <a href='album.php?album=$nome'>$nome</a></li>\n";
+				}
+				?>
 			</ul>
 		</article>
 	</div>
