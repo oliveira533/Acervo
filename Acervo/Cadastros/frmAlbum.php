@@ -65,6 +65,29 @@ $_SESSION['form'] = "Album";
             ?>
         </select>
         <img id="imgPreVis" style="border: solid; width: 50px; height: 50px;" name="txtArquivo">
+        
+        <section>
+
+            <table>
+                <tbody id="oMusicas">
+                    <tr id="oLinhaMusica">
+                        <td> <input type="hidden" name="txtCodMusica[]" value="0"> </td>
+                        <td> <input name="txtNomeMusica[]" value=""> </td>
+                        <td> <input type="time" name="txtDurMusca[]" value="00:00"> </td>
+                        <td> <textarea name="txaLetraMusica[]"> </textarea> </td>
+                        <td> <input type="link" name="txtVideoMusica[]" value=""> </td>
+                        <td> <input type="link" name="txtAudioMusica[]" value=""> </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td coldspan="6"><button type="button" onclick="fnDuplicaMusica()">Incluir Músicas</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </section>
+        
         <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
     </form>
     <script>
@@ -113,6 +136,12 @@ $_SESSION['form'] = "Album";
                 document.getElementById('imgPreVis').src = oArq.result;
             }
             oArq.readAsDataURL(oEvt.target.files[0]);
+        }
+
+        function fnDuplicaMusica(){
+            let cCampos = document.getElementById('oLinhaMusica').innerHTML;
+            
+            document.getElementById('oMusicas').insertAdjacentHTML('beforeEnd', cCampos);
         }
     </script>
 </body>
