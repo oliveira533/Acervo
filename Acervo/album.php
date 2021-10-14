@@ -1,12 +1,15 @@
 <?php
 require("conexao.php");
 if (isset($_GET['album']))
-	$album = $_GET['album'];
+	$album = htmlspecialchars_decode($_GET['album']);
 else
 	$album = 'Yellow Brick Road';
-$sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), IFNULL(GRVNOME, 'SEM GRAVADORA'), GNRNOME, MDSNOME FROM ALBUNS LEFT JOIN gravadoras ON ALBCODIGO = 
-GRVCODIGO JOIN generos ON ALBGENERO = GNRCODIGO LEFT JOIN midias ON ALBMIDIA = MDSCODIGO WHERE ALBNOME LIKE '%$album%'";
+$sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), IFNULL(GRVNOME, 'SEM GRAVADORA'),
+	IFNULL(ARTNOME,IFNULL(BDSNOME, 'Mais de 1 Criador')), GNRNOME, MDSNOME FROM ALBUNS LEFT JOIN gravadoras ON ALBCODIGO = GRVCODIGO 
+	LEFT JOIN generos ON ALBGENERO = GNRCODIGO LEFT JOIN midias ON ALBMIDIA = MDSCODIGO LEFT JOIN artistas on ALBARTISTA = ARTCODIGO 
+	LEFT JOIN bandas on ALBBANDA = BDSCODIGO WHERE ALBNOME LIKE '%$album%';";
 $consulta = mysqli_query($conexao, $sql);
+//echo $sql;
 $aDados = mysqli_fetch_array($consulta);
 ?>
 
@@ -32,6 +35,11 @@ $aDados = mysqli_fetch_array($consulta);
 					<img src="#" class="card-img-top" alt="..." />
 					<div class="card-body">
 						<h5 class="card-title"><?php echo $album ?></h5>
+						<p class="card-text margin2">Banda/Artista <br>
+							<a href="<?php echo "banda.php?banda=" . htmlspecialchars($aDados[3]) ?>">
+								<?php echo $aDados[3] ?>
+							</a>
+						</p>
 						<p class="card-text margin2">Gravadora<br><?php echo $aDados[2] ?></p>
 						<p class="card-text margin2">Genero <br><?php echo $aDados['GNRNOME'] ?></p>
 						<p class="card-text margin2">Midia <br> <?php echo $aDados['MDSNOME'] ?></p>
