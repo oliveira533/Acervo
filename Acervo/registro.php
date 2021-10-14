@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conexao = mysqli_connect("localhost", "root", '', "acervo");
+require("conexao.php");
 
 $sql = "INSERT INTO USUARIOS (USRNOME, USRLOGIN, USREMAIL,USRSENHA) VALUES ('" . $_GET['txbUser'] . "', '" . $_GET['txbLogin'] . "', '" . $_GET['txbEmail'] . "',md5('" . $_GET['txbSenha'] . "'))";
 mysqli_query($conexao, $sql);

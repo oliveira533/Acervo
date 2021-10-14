@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conexao = mysqli_connect("localhost", "root", '', "acervo");
+require("../conexao.php");
 
 $_SESSION['form'] = "Musica";
 ?>

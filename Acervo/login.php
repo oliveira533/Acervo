@@ -1,6 +1,7 @@
 <?php
 session_start();
-$conexao = mysqli_connect("localhost", "root", '', "acervo");
+require("conexao.php");
+//$conexao = mysqli_connect("localhost", "root", '', "acervo");
 $cSQL = "SELECT USRCODIGO, USRNOME" .
         "  FROM USUARIOS" .
         " WHERE '" . $_GET['txbEmail'] . "' IN (USRLOGIN, USREMAIL)" .

@@ -1,5 +1,5 @@
 <?php
-$conexao = mysqli_connect("localhost", "root", '', "acervo");
+require("conexao.php");
 if (isset($_GET['album']))
 	$album = $_GET['album'];
 else

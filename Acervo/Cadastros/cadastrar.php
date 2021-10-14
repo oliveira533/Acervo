@@ -2,8 +2,9 @@
 
 session_start();
 $oForm = $_SESSION['form'];
+require("../conexao.php");
 
-$conexao = mysqli_connect("localhost", "root", '', "acervo");
+
 
 $oQuery;
 

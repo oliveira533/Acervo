@@ -11,7 +11,7 @@ function fnEscreve($Nome, $Album, $Duracao)
     ";
 }
 
-$conexao = mysqli_connect("localhost", "root", '', "acervo");
+require("conexao.php");
 
 $sql = "SELECT MSCCODIGO, MSCNOME, MSCDURACAO, ALBNOME FROM MUSICAS JOIN faixas on FXSMUSICA = MSCCODIGO JOIN albuns ON ALBCODIGO = FXSALBUM WHERE MSCNOME LIKE '%" . $_GET["txbPesquisa"] . "%'";
 $consulta = mysqli_query($conexao, $sql);

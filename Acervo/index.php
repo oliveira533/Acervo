@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 session_start();
-$conexao = mysqli_connect("localhost", "root", '', "acervo");
+require("conexao.php");
 $bLogin = isset($_SESSION['USRCODIGO']);
 $nMaxAlbuns = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT ALBCODIGO FROM ALBUNS ORDER BY ALBCODIGO DESC"))['ALBCODIGO'];
 $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO FROM GENEROS ORDER BY GNRCODIGO DESC"))['GNRCODIGO'];
