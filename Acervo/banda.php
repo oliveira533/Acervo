@@ -61,7 +61,7 @@ mysqli_free_result($consulta);
 				<footer>
 					<header>Integrantes</header>
 					<div class="pintegre"><?php
-											$sql = "SELECT ARTNOME FROM integrantes JOIN bandas ON ITGBANDA = BDSCODIGO JOIN artistas ON ITGARTISTA = ARTCODIGO WHERE ITGBANDA = " . $aDados[0];
+											$sql = "SELECT ARTNOME FROM INTEGRANTES JOIN BANDAS ON ITGBANDA = BDSCODIGO JOIN artistas ON ITGARTISTA = ARTCODIGO WHERE ITGBANDA = " . $aDados[0];
 											$consulta = mysqli_query($conexao, $sql);
 											while ($vReg = mysqli_fetch_assoc($consulta))
 												echo $vReg["ARTNOME"] . "</br>"

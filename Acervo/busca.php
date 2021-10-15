@@ -13,8 +13,9 @@ function fnEscreve($Nome, $Album, $Duracao)
 
 require("conexao.php");
 
-$sql = "SELECT MSCCODIGO, MSCNOME, MSCDURACAO, ALBNOME FROM MUSICAS JOIN faixas on FXSMUSICA = MSCCODIGO JOIN albuns ON ALBCODIGO = FXSALBUM WHERE MSCNOME LIKE '%" . $_GET["txbPesquisa"] . "%'";
+$sql = "SELECT MSCCODIGO, MSCNOME, MSCDURACAO, ALBNOME FROM MUSICAS JOIN FAIXAS on FXSMUSICA = MSCCODIGO JOIN ALBUNS ON ALBCODIGO = FXSALBUM WHERE MSCNOME LIKE '%" . $_GET["txbPesquisa"] . "%'";
 $consulta = mysqli_query($conexao, $sql);
+echo $sql;
 ?>
 <!DOCTYPE html>
 <html lang="en">

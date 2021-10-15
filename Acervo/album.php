@@ -5,9 +5,9 @@ if (isset($_GET['album']))
 else
 	$album = 'Yellow Brick Road';
 $sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), IFNULL(GRVNOME, 'SEM GRAVADORA'),
-	IFNULL(ARTNOME,IFNULL(BDSNOME, 'Mais de 1 Criador')), GNRNOME, MDSNOME FROM ALBUNS LEFT JOIN gravadoras ON ALBCODIGO = GRVCODIGO 
-	LEFT JOIN generos ON ALBGENERO = GNRCODIGO LEFT JOIN midias ON ALBMIDIA = MDSCODIGO LEFT JOIN artistas on ALBARTISTA = ARTCODIGO 
-	LEFT JOIN bandas on ALBBANDA = BDSCODIGO WHERE ALBNOME LIKE '%$album%';";
+	IFNULL(ARTNOME,IFNULL(BDSNOME, 'Mais de 1 Criador')), GNRNOME, MDSNOME FROM ALBUNS LEFT JOIN GRAVADORAS ON ALBCODIGO = GRVCODIGO 
+	LEFT JOIN GENEROS ON ALBGENERO = GNRCODIGO LEFT JOIN MIDIAS ON ALBMIDIA = MDSCODIGO LEFT JOIN ARTISTAS on ALBARTISTA = ARTCODIGO 
+	LEFT JOIN BANDAS on ALBBANDA = BDSCODIGO WHERE ALBNOME LIKE '%$album%';";
 $consulta = mysqli_query($conexao, $sql);
 //echo $sql;
 $aDados = mysqli_fetch_array($consulta);
@@ -54,7 +54,7 @@ $aDados = mysqli_fetch_array($consulta);
 							<ul>
 								<h3>Musicas</h3>
 								<?php
-								$sql = "SELECT MSCCODIGO, MSCNOME FROM albuns JOIN faixas ON ALBCODIGO = FXSALBUM JOIN musicas on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
+								$sql = "SELECT MSCCODIGO, MSCNOME FROM ALBUNS JOIN FAIXAS ON ALBCODIGO = FXSALBUM JOIN MUSICAS on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
 								$consulta = mysqli_query($conexao, $sql);
 								while ($vReg = mysqli_fetch_assoc($consulta)) {
 									echo '<li>' . $vReg['MSCNOME'] . '</li>';
@@ -66,7 +66,7 @@ $aDados = mysqli_fetch_array($consulta);
 							<ul>
 								<h3>Duração</h3>
 								<?php
-								$sql = "SELECT MSCCODIGO, MSCDURACAO FROM albuns JOIN faixas ON ALBCODIGO = FXSALBUM JOIN musicas on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
+								$sql = "SELECT MSCCODIGO, MSCDURACAO FROM ALBUNS JOIN FAIXAS ON ALBCODIGO = FXSALBUM JOIN MUSICAS on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
 								$consulta = mysqli_query($conexao, $sql);
 								while ($vReg = mysqli_fetch_assoc($consulta)) {
 									echo '<li>' . $vReg['MSCDURACAO'] . '</li>';
