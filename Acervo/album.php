@@ -80,5 +80,8 @@ $aDados = mysqli_fetch_array($consulta);
 		</div>
 	</section>
 </body>
+<?php
+mysqli_free_result($consulta);
+?>
 
 </html>
