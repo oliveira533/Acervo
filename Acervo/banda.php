@@ -1,8 +1,28 @@
+<?php
+require("conexao.php");
+if (isset($_GET['banda']))
+	$banda = $_GET['banda'];
+else
+	$banda = 'Elton john';
+$sql = "SELECT IF('$banda' LIKE BDSNOME,'BANDA','ARTISTA') opcao FROM bandas";
+$consulta = mysqli_query($conexao, $sql);
+$bIsBanda = false;
+while ($vReg = mysqli_fetch_assoc($consulta)) {
+	if ($vReg["opcao"] == "BANDA")
+		$bIsBanda = true;
+}
+mysqli_free_result($consulta);
+$sql = $bIsBanda ? "SELECT * FROM BANDAS WHERE BDSNOME LIKE '%$banda%'" : "SELECT * FROM ARTISTAS WHERE ARTNOME LIKE '%$banda%'";
+$consulta = mysqli_query($conexao, $sql);
+$aDados = mysqli_fetch_array($consulta);
+mysqli_free_result($consulta);
+?>
 <html>
 
 <head>
 	<link rel="stylesheet" href="banda.css" />
-	<title>PLACEHOLDER: BANDA</title>
+	<title><?php echo $bIsBanda ? "Banda: " : "Artista: ";
+			echo $banda ?></title>
 	<meta charset="UTF-8" />
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
@@ -11,23 +31,17 @@
 <body>
 	<section>
 		<div class="esquerda">
-			<img src="https://www.hdwallpaper.nu/wp-content/uploads/2017/05/linkin_park-7.jpg" class="imgbanda" />
+			<img src="#" class="imgbanda" />
 			<nav>
-				<h5>Linkin Park</h5>
+				<h5><?php echo $banda ?></h5>
 				<p>
-					inicio da banda: <br />
-					fim da banda:
+					inicio da banda: <?php echo $aDados[2] ?> <br />
+					fim da banda: <?php echo is_null($aDados[3]) ? "Ainda atua atualmente." : $aDados[3]  ?>
 				</p>
 				<p>
-					Linkin Park é uma banda de rock dos Estados Unidos
-					formada em Agoura Hills, Califórnia.[10] A formação
-					atual da banda inclui o vocalista e multi-instrumentista
-					Mike Shinoda, o guitarrista Brad Delson, o baixista Dave
-					Farrell, o DJ Joe Hahn e o baterista Rob Bourdon, todos
-					membros fundadores. Outro membro que estava com a banda
-					desde sua fundação foi Chester Bennington, falecido em
-					2017. O vocalista Mark Wakefield e o baixista Kyle
-					Christner são ex-membros da banda. Formado em 1996
+					<?php
+					echo $aDados[4]
+					?>
 				</p>
 			</nav>
 		</div>
@@ -43,10 +57,16 @@
 				<a class="disco"><img src="#" /> </a>
 				<a class="disco"><img src="#" /> </a>
 			</article>
-			<footer>
-				<header>integrantes</header>
-				<div class="pintegre"><br /><br /></div>
-			</footer>
+			<?php if ($bIsBanda) { ?>
+				<footer>
+					<header>integrantes</header>
+					<div class="pintegre"><?php
+											$sql = "SELECT ARTNOME FROM integrantes JOIN bandas ON ITGBANDA = BDSCODIGO JOIN artistas ON ITGARTISTA = ARTCODIGO WHERE ITGBANDA = " . $aDados[0];
+											$consulta = mysqli_query($conexao, $sql);
+											while ($vReg = mysqli_fetch_assoc($consulta))
+												echo $vReg["ARTNOME"] . "</br>"
+											?></div>
+				</footer> <?php } ?>
 		</div>
 		<a href="index.php"><img class="banda" src="https://www.svgrepo.com/show/40892/home-button.svg" />
 		</a>
