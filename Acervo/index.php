@@ -19,7 +19,7 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 
 <body>
 	<header>
-		<img class="logo" src="https://static.wixstatic.com/media/01601d_fb07cbb4c1a44c51817e74c023bc5213~mv2.png/v1/fill/w_159,h_156,al_c,q_85,usm_0.66_1.00_0.01/Logotipo%201%20-%20PNG.webp" />
+		<img class="logo" src="./images/BananaDeCalcinha.png" />
 		<p>SITE ACERVO</p>
 		<form action="busca.php">
 			<input type="image" class="search" src="./images/Lupa.svg" />
@@ -39,7 +39,6 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 				else echo "Usuario" ?>
 			</a>
 		</nav>
-
 	</header>
 	<div class="boxMusic">
 		<section><span>Os albuns mais novos</span></section>
