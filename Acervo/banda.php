@@ -1,7 +1,7 @@
 <?php
 require("conexao.php");
 if (isset($_GET['banda']))
-	$banda = $_GET['banda'];
+	$banda = urldecode($_GET['banda']);
 else
 	$banda = 'Elton john';
 $sql = "SELECT IF('$banda' LIKE BDSNOME,'BANDA','ARTISTA') opcao FROM bandas";

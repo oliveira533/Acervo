@@ -1,7 +1,7 @@
 <?php
 require("conexao.php");
 if (isset($_GET['album']))
-	$album = htmlspecialchars_decode($_GET['album']);
+	$album = urldecode($_GET['album']);
 else
 	$album = 'Yellow Brick Road';
 $sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), IFNULL(GRVNOME, 'SEM GRAVADORA'),
