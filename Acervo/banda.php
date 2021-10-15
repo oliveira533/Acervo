@@ -59,7 +59,7 @@ mysqli_free_result($consulta);
 			</article>
 			<?php if ($bIsBanda) { ?>
 				<footer>
-					<header>integrantes</header>
+					<header>Integrantes</header>
 					<div class="pintegre"><?php
 											$sql = "SELECT ARTNOME FROM integrantes JOIN bandas ON ITGBANDA = BDSCODIGO JOIN artistas ON ITGARTISTA = ARTCODIGO WHERE ITGBANDA = " . $aDados[0];
 											$consulta = mysqli_query($conexao, $sql);
@@ -68,9 +68,9 @@ mysqli_free_result($consulta);
 											?></div>
 				</footer> <?php } ?>
 		</div>
-		<a href="index.php"><img class="banda" src="https://www.svgrepo.com/show/40892/home-button.svg" />
 		</a>
 	</section>
+	<a class="btn-home" href="index.php"><img class="img-home" src="https://www.svgrepo.com/show/40892/home-button.svg" />
 </body>
 
 </html>
