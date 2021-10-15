@@ -19,6 +19,7 @@ $aDados = mysqli_fetch_array($consulta);
 	<title>Album: <?php echo $album; ?></title>
 	<link rel="stylesheet" href="bootstrap.min.css" />
 	<link rel="stylesheet" href="album.css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<meta charset="UTF-8" />
 </head>
 

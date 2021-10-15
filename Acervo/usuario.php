@@ -6,6 +6,8 @@ session_start();
 <head>
     <link rel="stylesheet" href="usuario.css">
     <title><?php echo $_SESSION["USRNOME"] ?></title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
     <meta charset="UTF-8">
 </head>
 
