@@ -5,17 +5,21 @@ function fnEscreve($Nome, $Album, $Duracao)
     echo "    
     <div class='musica'>
         <a href='album.php?album=$Album'>$Nome</a>
-        <p>Album: $Album</p>
+        <a href='album.php?album=$Album'>Album: $Album</a>
         <p>Duração: $Duracao</p>
     </div>
     ";
 }
 
 require("conexao.php");
+$busca = $_GET["txbPesquisa"];
 
-$sql = "SELECT MSCCODIGO, MSCNOME, MSCDURACAO, ALBNOME FROM MUSICAS JOIN FAIXAS on FXSMUSICA = MSCCODIGO JOIN ALBUNS ON ALBCODIGO = FXSALBUM WHERE MSCNOME LIKE '%" . $_GET["txbPesquisa"] . "%'";
+$sql = "SELECT MSCCODIGO, MSCNOME, MSCDURACAO, ALBNOME FROM MUSICAS JOIN 
+FAIXAS on FXSMUSICA = MSCCODIGO JOIN ALBUNS ON ALBCODIGO = FXSALBUM 
+JOIN GENEROS ON MSCGENERO = GNRCODIGO LEFT JOIN ARTISTAS ON ALBARTISTA = ARTCODIGO
+LEFT JOIN BANDAS ON BDSCODIGO = ALBBANDA
+WHERE MSCNOME LIKE '%$busca%' OR ALBNOME LIKE '%$busca%' OR GNRNOME LIKE '%$busca%' OR ARTNOME LIKE '%$busca%' OR BDSNOME LIKE '%$busca%';";
 $consulta = mysqli_query($conexao, $sql);
-echo $sql;
 ?>
 <!DOCTYPE html>
 <html lang="en">
