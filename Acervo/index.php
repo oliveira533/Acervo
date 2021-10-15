@@ -111,5 +111,8 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 	</div>
 	<a href="deslogar.php">Deslogar</a>
 </body>
+<?php
+mysqli_free_result($consulta);
+?>
 
 </html>

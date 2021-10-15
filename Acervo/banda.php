@@ -72,5 +72,8 @@ mysqli_free_result($consulta);
 	</section>
 	<a class="btn-home" href="index.php"><img class="img-home" src="https://www.svgrepo.com/show/40892/home-button.svg" />
 </body>
+<?php
+mysqli_free_result($consulta);
+?>
 
 </html>
