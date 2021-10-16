@@ -10,7 +10,6 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 <html>
 
 <head>
-	<link rel="stylesheet" href="bootstrap.min.css">
 	<link rel="stylesheet" href="inicio.css" />
 	<title>Acervo: Banana de Calcinha</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
