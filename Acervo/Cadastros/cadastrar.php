@@ -12,7 +12,7 @@ $vCodMusica = array();
 
 mysqli_begin_transaction($conexao)
 
-$oQuery;
+$oQuery = "";
 
 if ($oForm == "Genero") {
     $oGenNome = $_GET['txbNome'];
