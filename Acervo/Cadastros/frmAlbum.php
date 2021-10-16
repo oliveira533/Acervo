@@ -1,9 +1,7 @@
 <?php
 session_start();
 $_SESSION['form'] = "Album";
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 ?>
 <html>
 
@@ -68,7 +66,7 @@ error_reporting(E_ALL);
             ?>
         </select>
         <img id="imgPreVis" style="border: solid; width: 50px; height: 50px;" name="txtArquivo">
-        
+
         <section>
 
             <table>
@@ -90,7 +88,7 @@ error_reporting(E_ALL);
             </table>
 
         </section>
-        
+
         <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
     </form>
     <script>
@@ -141,9 +139,9 @@ error_reporting(E_ALL);
             oArq.readAsDataURL(oEvt.target.files[0]);
         }
 
-        function fnDuplicaMusica(){
+        function fnDuplicaMusica() {
             let cCampos = document.getElementById('oLinhaMusica').innerHTML;
-            
+
             document.getElementById('oMusicas').insertAdjacentHTML('beforeEnd', cCampos);
         }
     </script>
