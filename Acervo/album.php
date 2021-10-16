@@ -32,7 +32,7 @@ $aDados = mysqli_fetch_array($consulta);
 							margin margin
 							col-3 col-sm-3 col-md-3 col-lg-3
 							descricao
-						" style="background: #00022e; color: #fff">
+						">
 					<img src="#" class="card-img-top" alt="..." />
 					<div class="card-body">
 						<h5 class="card-title"><?php echo $album ?></h5>
