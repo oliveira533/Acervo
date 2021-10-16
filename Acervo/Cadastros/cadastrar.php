@@ -59,10 +59,10 @@ if ($oForm == "Genero") {
         $vDadosMusica[$nCont][] = isset($_GET['slcArtista']) ? $_GET['slcArtista'] : null;
 
         $vDadosMusica[$nCont][] = $_GET['txaLetraMusica'][$nCont];
-        $vDadosMusica[$nCOnt][] = $_GET['txtVideoMusica'][$nCont];
+        $vDadosMusica[$nCont][] = $_GET['txtVideoMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtAudioMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txbmidia'];
-        mysqli_stmt_bind_param('ssiisss', ...$vDadosMusica);
+        mysqli_stmt_bind_param($oCmd, 'ssiisss', ...$vDadosMusica);
     }
 
     mysqli_stmt_prepare($oCmd, 'INSERT INTO FAIXAS (FXSALBUM, FXSMUSICA, FXSPOSICAO) VALUES (?, ?, ?)');
