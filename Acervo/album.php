@@ -1,13 +1,13 @@
 <?php
 require("conexao.php");
 if (isset($_GET['album']))
-	$album = htmlspecialchars_decode($_GET['album']);
+	$album = urldecode($_GET['album']);
 else
 	$album = 'Yellow Brick Road';
 $sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), IFNULL(GRVNOME, 'SEM GRAVADORA'),
-	IFNULL(ARTNOME,IFNULL(BDSNOME, 'Mais de 1 Criador')), GNRNOME, MDSNOME FROM ALBUNS LEFT JOIN gravadoras ON ALBCODIGO = GRVCODIGO 
-	LEFT JOIN generos ON ALBGENERO = GNRCODIGO LEFT JOIN midias ON ALBMIDIA = MDSCODIGO LEFT JOIN artistas on ALBARTISTA = ARTCODIGO 
-	LEFT JOIN bandas on ALBBANDA = BDSCODIGO WHERE ALBNOME LIKE '%$album%';";
+	IFNULL(ARTNOME,IFNULL(BDSNOME, 'Mais de 1 Criador')), GNRNOME, MDSNOME FROM ALBUNS LEFT JOIN GRAVADORAS ON ALBCODIGO = GRVCODIGO 
+	LEFT JOIN GENEROS ON ALBGENERO = GNRCODIGO LEFT JOIN MIDIAS ON ALBMIDIA = MDSCODIGO LEFT JOIN ARTISTAS on ALBARTISTA = ARTCODIGO 
+	LEFT JOIN BANDAS on ALBBANDA = BDSCODIGO WHERE ALBNOME LIKE '%$album%';";
 $consulta = mysqli_query($conexao, $sql);
 //echo $sql;
 $aDados = mysqli_fetch_array($consulta);
@@ -19,6 +19,7 @@ $aDados = mysqli_fetch_array($consulta);
 	<title>Album: <?php echo $album; ?></title>
 	<link rel="stylesheet" href="bootstrap.min.css" />
 	<link rel="stylesheet" href="album.css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<meta charset="UTF-8" />
 </head>
 
@@ -31,12 +32,12 @@ $aDados = mysqli_fetch_array($consulta);
 							margin margin
 							col-3 col-sm-3 col-md-3 col-lg-3
 							descricao
-						" style="background: #00022e; color: #fff">
+						">
 					<img src="#" class="card-img-top" alt="..." />
 					<div class="card-body">
 						<h5 class="card-title"><?php echo $album ?></h5>
 						<p class="card-text margin2">Banda/Artista <br>
-							<a href="<?php echo "banda.php?banda=" . htmlspecialchars($aDados[3]) ?>">
+							<a href="<?php echo "banda.php?banda=" . urlencode($aDados[3]) ?>">
 								<?php echo $aDados[3] ?>
 							</a>
 						</p>
@@ -53,7 +54,7 @@ $aDados = mysqli_fetch_array($consulta);
 							<ul>
 								<h3>Musicas</h3>
 								<?php
-								$sql = "SELECT MSCCODIGO, MSCNOME FROM albuns JOIN faixas ON ALBCODIGO = FXSALBUM JOIN musicas on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
+								$sql = "SELECT MSCCODIGO, MSCNOME FROM ALBUNS JOIN FAIXAS ON ALBCODIGO = FXSALBUM JOIN MUSICAS on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
 								$consulta = mysqli_query($conexao, $sql);
 								while ($vReg = mysqli_fetch_assoc($consulta)) {
 									echo '<li>' . $vReg['MSCNOME'] . '</li>';
@@ -65,7 +66,7 @@ $aDados = mysqli_fetch_array($consulta);
 							<ul>
 								<h3>Duração</h3>
 								<?php
-								$sql = "SELECT MSCCODIGO, MSCDURACAO FROM albuns JOIN faixas ON ALBCODIGO = FXSALBUM JOIN musicas on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
+								$sql = "SELECT MSCCODIGO, MSCDURACAO FROM ALBUNS JOIN FAIXAS ON ALBCODIGO = FXSALBUM JOIN MUSICAS on FXSMUSICA = MSCCODIGO WHERE ALBNOME LIKE '%$album%'";
 								$consulta = mysqli_query($conexao, $sql);
 								while ($vReg = mysqli_fetch_assoc($consulta)) {
 									echo '<li>' . $vReg['MSCDURACAO'] . '</li>';
@@ -79,5 +80,8 @@ $aDados = mysqli_fetch_array($consulta);
 		</div>
 	</section>
 </body>
+<?php
+mysqli_free_result($consulta);
+?>
 
 </html>

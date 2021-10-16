@@ -10,16 +10,16 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 <html>
 
 <head>
-	<link rel="stylesheet" href="bootstrap.min.css">
 	<link rel="stylesheet" href="inicio.css" />
 	<title>Acervo: Banana de Calcinha</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<meta charset="UTF-8">
 </head>
 
 <body>
 	<header>
-		<img class="logo" src="https://static.wixstatic.com/media/01601d_fb07cbb4c1a44c51817e74c023bc5213~mv2.png/v1/fill/w_159,h_156,al_c,q_85,usm_0.66_1.00_0.01/Logotipo%201%20-%20PNG.webp" />
-		<p>SITE ACERVO</p>
+		<img class="logo" src="./images/BananaDeCalcinha.png" />
+		<p>Acervo: Banana de Calcinha</p>
 		<form action="busca.php">
 			<input type="image" class="search" src="./images/Lupa.svg" />
 			<input name="txbPesquisa" id="txbPesquisa" />
@@ -38,7 +38,6 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 				else echo "Usuario" ?>
 			</a>
 		</nav>
-
 	</header>
 	<div class="boxMusic">
 		<section><span>Os albuns mais novos</span></section>
@@ -49,7 +48,7 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
 					$nome = $vReg['ALBNOME'];
-					echo "<li><img src='#' /> <a href='album.php?album=" . htmlspecialchars($nome) . "'>$nome</a></li>\n";
+					echo "<li><img src='#' /> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
 				}
 				?>
 			</ul>
@@ -71,7 +70,7 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
 					$nome = $vReg['ALBNOME'];
-					echo "<li><img src='#' /> <a href='album.php?album=" . htmlspecialchars($nome) . "'>$nome</a></li>\n";
+					echo "<li><img src='#' /> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
 				}
 				?>
 			</ul>
@@ -103,7 +102,7 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
 					$nome = $vReg['ALBNOME'];
-					echo "<li><img src='#' /> <a href='album.php?album=" . htmlspecialchars($nome) . "'>$nome</a></li>\n";
+					echo "<li><img src='#' /> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
 				}
 				?>
 			</ul>
@@ -111,5 +110,8 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 	</div>
 	<a href="deslogar.php">Deslogar</a>
 </body>
+<?php
+mysqli_free_result($consulta);
+?>
 
 </html>
