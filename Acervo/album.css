@@ -16,6 +16,7 @@ body {
 }
 .descricao {
 	font-size: 2.4rem;
+	min-height: 80vh;
 	background: #0f38ce8f;
 	color: #000;
 	font-weight: 600;
