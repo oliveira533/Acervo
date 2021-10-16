@@ -10,7 +10,7 @@ $nCodgAlbum = 0;
 
 $vCodMusica = array();
 
-mysqli_begin_transaction($conexao)
+mysqli_begin_transaction($conexao);
 
 $oQuery = "";
 
@@ -44,30 +44,27 @@ if ($oForm == "Genero") {
     }
     $nCodgAlbum = mysqli_insert_id($conexao);
 
-    $nQtd = count($_GET['txtNomeMusica'])
+    $nQtd = count($_GET['txtNomeMusica']);
 
     $oCmd = mysqli_stmt_init($conexao);
     mysqli_stmt_prepare($oCmd, "INSER INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO, MSCMIDIA) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
-    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][$nCont], $_GET['txtDurMusca'][$nCont], $_GET['txbgenero'][$nCont], $_GET['txbBanda'], $_GET['txbArtista'], $_GET['txaLetraMusica'][$nCont], $_GET['txtVideoMusica'][$nCont], $_GET['txtAudioMusica'][$nCont], $_GET['txbmidia']);
+    mysqli_stmt_bind_param($oCmd, 'ssiisss', $_GET['txtNomeMusica'][$nCont], $_GET['txtDurMusca'][$nCont], $_GET['txbgenero'][$nCont], $_GET['txbBanda'], $_GET['txbArtista'], $_GET['txaLetraMusica'][$nCont], $_GET['txtVideoMusica'][$nCont], $_GET['txtAudioMusica'][$nCont], $_GET['txbmidia']);
 
-    for ($nCont= 0; $nCont < $nQtd; $nCont++)
-    {
+    for ($nCont = 0; $nCont < $nQtd; $nCont++) {
         $vDadosMusca[$nCont] = array();
-        $vDadosMusca[$nCont][]
+        $vDadosMusca[$nCont][];
 
         mysqli_stmt_execute($oCmd);
-        $vCodMusica = mysqli_insert_id($conexao)
+        $vCodMusica = mysqli_insert_id($conexao);
     }
 
     mysqli_stmt_prepare($oCmd, 'INSERT INTO FAIXAS (FXSALBUM, FXSMUSICA, FXSPOSICAO) VALUES (?, ?, ?)');
 
-    for ($nCont= 0; $nCont < $nQtd; $nCont++)
-    {
-        mysqli_stmt_bind_param('iii', $nCodgAlbum, $vCodMusica[$nCont], $nCont);
+    for ($nCont = 0; $nCont < $nQtd; $nCont++) {
+        mysqli_stmt_bind_param($oCmd, 'iii', $nCodgAlbum, $vCodMusica[$nCont], $nCont);
         mysqli_stmt_execute($oCmd);
     }
-    myqli_commit($conexao)
-
+    mysqli_commit($conexao);
 } else if ($oForm == "Insturmento") {
     $oInsNome = $_GET['txbNome'];
     $oInsTipo = $_GET['slcTipo'];
