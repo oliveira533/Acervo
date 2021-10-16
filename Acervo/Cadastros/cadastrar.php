@@ -50,7 +50,7 @@ if ($oForm == "Genero") {
     mysqli_stmt_prepare($oCmd, "INSERT INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 
     if (!$oCmd)
-        echo "porra";
+        echo "Erro em conectar ao servidor tente novamente mais tarde!";
     for ($nCont = 0; $nCont < $nQtd; $nCont++) {
         $vDadosMusica[$nCont] = array();
         $vDadosMusica[$nCont][] = $_GET['txtNomeMusica'][$nCont];
@@ -63,7 +63,6 @@ if ($oForm == "Genero") {
         $vDadosMusica[$nCont][] = $_GET['txaLetraMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtVideoMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtAudioMusica'][$nCont];
-        $vDadosMusica[$nCont][] = $_GET['txbmidia'];
         var_dump($oCmd);
         mysqli_stmt_bind_param($oCmd, 'ssiiisss', ...$vDadosMusica);
         mysqli_stmt_execute($oCmd);
