@@ -26,12 +26,12 @@ if ($oForm == "Genero") {
     $oAlbGrav = $_GET['txbgravadora'];
     $oAlbGen = $_GET['txbgenero'];
     $oAlbDtLanc = $_GET['TxbDatadeLancamento'];
-    $oAlbBanda = $_GET['txbBanda'];
-    $oAlbArtista = $_GET['txbArtista'];
+    $oAlbBanda = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : $_GET['slcArtista'];
     $oAlMidia = $_GET['txbmidia'];
 
-    move_uploaded_file($_FILES['txbcapa']['tmp_name'], $_FILES['txbcapa']['name']);
-
+    if (isset($_FILES['txbcapa'])) {
+        move_uploaded_file($_FILES['txbcapa']['tmp_name'], $_FILES['txbcapa']['name']);
+    }
     if ($oAlbBanda == "") {
         $oQuery = "INSERT INTO ALBUNS (ALBNOME, ALBGRAVADORA, ALBGENERO, ALBDTLANCAMENTO, ALBARTISTA, ALBMIDIA) VALUES ('" . $oAlbNome . "','" . $oAlbGrav . "', '" . $oAlbGen . "', '" . $oAlbDtLanc . "', '" . $oAlbArtista . "','" . $oAlMidia . "')";
         echo ($oQuery);
@@ -47,16 +47,17 @@ if ($oForm == "Genero") {
     $nQtd = count($_GET['txtNomeMusica']);
 
     $oCmd = mysqli_stmt_init($conexao);
-    mysqli_stmt_prepare($oCmd, "INSER INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO, MSCMIDIA) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+    mysqli_stmt_prepare($oCmd, "INSERT INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO, MSCMIDIA) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 
-    for ($nCont= 0; $nCont < $nQtd; $nCont++)
-    {
+    for ($nCont = 0; $nCont < $nQtd; $nCont++) {
         $vDadosMusica[$nCont] = array();
         $vDadosMusica[$nCont][] = $_GET['txtNomeMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtDurMusca'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txbgenero'][$nCont];
-        $vDadosMusica[$nCont][] = ($_GET['txbBanda']);
-        $vDadosMusica[$nCont][] = ($_GET['txbArtista']);
+
+        $vDadosMusica[$nCont][] = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : null;
+        $vDadosMusica[$nCont][] = isset($_GET['slcArtista']) ? $_GET['slcBanda'] : null;
+
         $vDadosMusica[$nCont][] = $_GET['txaLetraMusica'][$nCont];
         $vDadosMusica[$nCOnt][] = $_GET['txtVideoMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtAudioMusica'][$nCont];
