@@ -40,6 +40,8 @@ $consulta = mysqli_query($conexao, $sql);
         fnEscreve($vReg["MSCNOME"], $vReg["ALBNOME"], $vReg["MSCDURACAO"]);
     }
     ?>
+    <a href="index.php"><img src="https://www.svgrepo.com/show/40892/home-button.svg" alt="" width="40px" /></a>
+
 </body>
 
 </html>
