@@ -8,7 +8,7 @@ $_SESSION['form'] = "Album";
 <body>
     <form action="teste.php" onsubmit="fnLimpa()">
         <label for="NoAl">Nome</label><input type="text" name="NoAl" id="NoAl">
-        <label fro="txbgravadora">Gravadora</label><select name="txbgravadora">
+        <label for="txbgravadora">Gravadora</label><select name="txbgravadora">
             <?php
             $conexao = mysqli_connect("localhost", "Aluno2DS", "SenhaBD2", "ACERVO");
             $sql = "SELECT GRVCODIGO, GRVNOME FROM GRAVADORAS ORDER BY GRVNOME";
