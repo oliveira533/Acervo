@@ -49,7 +49,7 @@ if ($oForm == "Genero") {
 
     for ($nCont= 0; $nCont < $nQtd; $nCont++)
     {
-    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][0], $_GET['txtDurMusca'][0], $_GET['txbgenero'][0], $_GET['txbBanda'], $_GET['txbArtista'], $_GET['txaLetraMusica'][0], $_GET['txtVideoMusica'][0], $_GET['txtAudioMusica'][0], $_GET['txbmidia']);
+    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][$nCont], $_GET['txtDurMusca'][$nCont], $_GET['txbgenero'][$nCont], $_GET['txbBanda'], $_GET['txbArtista'], $_GET['txaLetraMusica'][$nCont], $_GET['txtVideoMusica'][$nCont], $_GET['txtAudioMusica'][$nCont], $_GET['txbmidia']);
     mysqli_stmt_execute($oCmd);
     $vCodMusica = mysqli_insert_id($conexao)
     }
@@ -58,10 +58,10 @@ if ($oForm == "Genero") {
 
     for ($nCont= 0; $nCont < $nQtd; $nCont++)
     {
-    mysqli_stmt_bind_param('iii', $nCodgAlbum, $vCodMusica[$nCont], $nCont++);
+    mysqli_stmt_bind_param('iii', $nCodgAlbum, $vCodMusica[$nCont], $nCont);
     mysqli_stmt_execute($oCmd);
     }
-    myqli_Commit($conexao)
+    myqli_commit($conexao)
 
 } else if ($oForm == "Insturmento") {
     $oInsNome = $_GET['txbNome'];
