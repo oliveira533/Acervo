@@ -116,13 +116,16 @@ li > a:hover {
 	margin-right: 10px;
 	margin-left: 50px;
 }
-
+#txbPesquisa {
+	border: 0.4rem solid #000;
+}
 header > a > img {
 	top: 10px;
 }
 p {
 	display: flex;
 	align-items: center;
+
 	margin-top: 5px;
 	color: #ffffff;
 	border-radius: 20px;
@@ -143,6 +146,9 @@ p {
 	display: flex;
 	flex-direction: column;
 }
+.usuario a {
+	height: 100%;
+}
 .username {
 	text-decoration: none;
 	text-align: center;
@@ -162,7 +168,6 @@ input {
 	font-size: 2.4rem;
 	border-radius: 10px;
 }
-
 header > a {
 	width: 10vw;
 }
