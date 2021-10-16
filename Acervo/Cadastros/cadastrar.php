@@ -48,12 +48,20 @@ if ($oForm == "Genero") {
 
     $oCmd = mysqli_stmt_init($conexao);
     mysqli_stmt_prepare($oCmd, "INSER INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO, MSCMIDIA) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
-    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][$nCont], $_GET['txtDurMusca'][$nCont], $_GET['txbgenero'][$nCont], $_GET['txbBanda'], $_GET['txbArtista'], $_GET['txaLetraMusica'][$nCont], $_GET['txtVideoMusica'][$nCont], $_GET['txtAudioMusica'][$nCont], $_GET['txbmidia']);
 
     for ($nCont= 0; $nCont < $nQtd; $nCont++)
     {
-        $vDadosMusca[$nCont] = array();
-        $vDadosMusca[$nCont][]
+        $vDadosMusica[$nCont] = array();
+        $vDadosMusica[$nCont][] = $_GET['txtNomeMusica'][$nCont];
+        $vDadosMusica[$nCont][] = $_GET['txtDurMusca'][$nCont];
+        $vDadosMusica[$nCont][] = $_GET['txbgenero'][$nCont];
+        $vDadosMusica[$nCont][] = ($_GET['txbBanda']==''?null);
+        $vDadosMusica[$nCont][] = ($_GET['txbArtista']==''?null);
+        $vDadosMusica[$nCont][] = $_GET['txaLetraMusica'][$nCont];
+        $vDadosMusica[$nCOnt][] = $_GET['txtVideoMusica'][$nCont];
+        $vDadosMusica[$nCont][] = $_GET['txtAudioMusica'][$nCont];
+        $vDadosMusica[$nCont][] = $_GET['txbmidia'];
+        mysqli_stmt_bind_param('ssiisss', ...$vDadosMusica);
 
         mysqli_stmt_execute($oCmd);
         $vCodMusica = mysqli_insert_id($conexao)
