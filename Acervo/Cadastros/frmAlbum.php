@@ -1,18 +1,20 @@
 <?php
 session_start();
 $_SESSION['form'] = "Album";
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 <html>
 
 <body>
-    <form action="cadstrar.php" onsubmit="fnLimpa()">
+    <form action="./Cadastros/cadastrar.php" onsubmit="fnLimpa()">
         <label for="NoAl">Nome</label><input type="text" name="NoAl" id="NoAl">
         <label for="txbgravadora">Gravadora</label><select name="txbgravadora">
             <?php
-            $conexao = mysqli_connect("localhost", "Aluno2DS", "SenhaBD2", "ACERVO");
             $sql = "SELECT GRVCODIGO, GRVNOME FROM GRAVADORAS ORDER BY GRVNOME";
-            require("../conexao.php");
+            $consulta = mysqli_query($conexao, $sql);
+
             while ($vReg = mysqli_fetch_assoc($consulta)) {
                 echo "<option value='" . $vReg["GRVCODIGO"] . "'>" . $vReg["GRVNOME"] . "</option>";
             }
