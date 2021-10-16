@@ -55,8 +55,8 @@ if ($oForm == "Genero") {
         $vDadosMusica[$nCont][] = $_GET['txtNomeMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtDurMusca'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txbgenero'][$nCont];
-        $vDadosMusica[$nCont][] = ($_GET['txbBanda']==''?null);
-        $vDadosMusica[$nCont][] = ($_GET['txbArtista']==''?null);
+        $vDadosMusica[$nCont][] = ($_GET['txbBanda']==''?null:);
+        $vDadosMusica[$nCont][] = ($_GET['txbArtista']==''?null:);
         $vDadosMusica[$nCont][] = $_GET['txaLetraMusica'][$nCont];
         $vDadosMusica[$nCOnt][] = $_GET['txtVideoMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtAudioMusica'][$nCont];
