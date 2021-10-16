@@ -21,15 +21,19 @@ body {
 }
 body > a {
 	position: fixed;
-	top: 90%;
-	left: 94%;
+	top: 88%;
+	left: 92%;
 }
 body > a img {
 	width: 5vw;
+	transition: 0.5s;
+}
+body > a img:hover {
+	transform: scale(1.5, 1.5);
 }
 body > img {
-	width: 8vw;
-	position: fixed;
+	width: 10vw;
+	position: absolute;
 }
 .musica {
 	margin-left: 20%;
