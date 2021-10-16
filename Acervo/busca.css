@@ -27,7 +27,12 @@ body > a {
 body > a img {
 	width: 5vw;
 }
+body > img {
+	width: 8vw;
+	position: fixed;
+}
 .musica {
+	margin-left: 20%;
 	width: max-content;
 	margin-top: 0.5em;
 	max-width: 50%;

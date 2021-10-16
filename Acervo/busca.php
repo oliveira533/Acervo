@@ -34,6 +34,7 @@ $consulta = mysqli_query($conexao, $sql);
 </head>
 
 <body>
+    <img class="logo" src="./images/BananaDeCalcinha.png" />
 
     <?php
     while ($vReg = mysqli_fetch_assoc($consulta)) {
