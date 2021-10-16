@@ -20,6 +20,7 @@ body {
 	height: 100vh;
 }
 .musica {
+	max-width: 50%;
 	display: flex;
 	font-size: 3rem;
 	flex-wrap: wrap;
