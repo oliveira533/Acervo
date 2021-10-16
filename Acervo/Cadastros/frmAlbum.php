@@ -1,11 +1,12 @@
 <?php
 session_start();
 $_SESSION['form'] = "Album";
+
 ?>
 <html>
 
 <body>
-    <form action="./Cadastros/cadastrar.php" onsubmit="fnLimpa()">
+    <form action="teste.php" onsubmit="fnLimpa()">
         <label for="NoAl">Nome</label><input type="text" name="NoAl" id="NoAl">
         <label fro="txbgravadora">Gravadora</label><select name="txbgravadora">
             <?php
