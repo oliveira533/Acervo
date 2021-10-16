@@ -37,7 +37,7 @@ if ($oForm == "Genero") {
 
     $oCmd = mysqli_stmt_init($conexao);
     mysqli_stmt_prepare($oCmd, "INSER INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
-    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][0], $_GET['txtDurMusca'][0], $_GET['txbgenero'][0], $_GET['txbBanda'][0], $_GET['txbArtista'][0], $_GET['txaLetraMusica'][0], $_GET['txtVideoMusica'][0], $_GET['txtAudioMusica'][0]);
+    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][0], $_GET['txtDurMusca'][0], $_GET['txbgenero'][0], $_GET['txbBanda'][0], $_GET['txbArtista'][0], $_GET['txaLetraMusica'][0], $_GET['txtVideoMusica'][0], $_GET['txtAudioMusica'][0 ]);
 
 } else if ($oForm == "Insturmento") {
     $oInsNome = $_GET['txbNome'];
