@@ -6,13 +6,13 @@ $_SESSION['form'] = "Album";
 <html>
 
 <body>
-    <form action="cadstrar.phps" onsubmit="fnLimpa()">
+    <form action="./Cadastros/cadastrar.php" onsubmit="fnLimpa()">
         <label for="NoAl">Nome</label><input type="text" name="NoAl" id="NoAl">
         <label for="txbgravadora">Gravadora</label><select name="txbgravadora">
             <?php
-            $conexao = mysqli_connect("localhost", "Aluno2DS", "SenhaBD2", "ACERVO");
             $sql = "SELECT GRVCODIGO, GRVNOME FROM GRAVADORAS ORDER BY GRVNOME";
-            require("../conexao.php");
+            $consulta = mysqli_query($conexao, $sql);
+
             while ($vReg = mysqli_fetch_assoc($consulta)) {
                 echo "<option value='" . $vReg["GRVCODIGO"] . "'>" . $vReg["GRVNOME"] . "</option>";
             }
@@ -66,7 +66,7 @@ $_SESSION['form'] = "Album";
             ?>
         </select>
         <img id="imgPreVis" style="border: solid; width: 50px; height: 50px;" name="txtArquivo">
-        
+
         <section>
 
             <table>
@@ -88,7 +88,7 @@ $_SESSION['form'] = "Album";
             </table>
 
         </section>
-        
+
         <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
     </form>
     <script>
@@ -139,9 +139,9 @@ $_SESSION['form'] = "Album";
             oArq.readAsDataURL(oEvt.target.files[0]);
         }
 
-        function fnDuplicaMusica(){
+        function fnDuplicaMusica() {
             let cCampos = document.getElementById('oLinhaMusica').innerHTML;
-            
+
             document.getElementById('oMusicas').insertAdjacentHTML('beforeEnd', cCampos);
         }
     </script>

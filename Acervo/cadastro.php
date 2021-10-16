@@ -27,9 +27,13 @@
         </nav>
         <div>
             <?php
+            require("conexao.php");
+            
+            if(isset($_GET['form'])){
             $form = $_GET['form'];
             echo "<h2>$form</h2>";
             include("./Cadastros/frm" . $_GET['form'] . ".php");
+        }
             ?>
         </div>
     </main>

@@ -10,9 +10,9 @@ $nCodgAlbum = 0;
 
 $vCodMusica = array();
 
-mysqli_begin_transaction($conexao)
+mysqli_begin_transaction($conexao);
 
-$oQuery;
+$oQuery = "";
 
 if ($oForm == "Genero") {
     $oGenNome = $_GET['txbNome'];
@@ -44,7 +44,7 @@ if ($oForm == "Genero") {
     }
     $nCodgAlbum = mysqli_insert_id($conexao);
 
-    $nQtd = count($_GET['txtNomeMusica'])
+    $nQtd = count($_GET['txtNomeMusica']);
 
     $oCmd = mysqli_stmt_init($conexao);
     mysqli_stmt_prepare($oCmd, "INSER INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO, MSCMIDIA) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
@@ -62,20 +62,15 @@ if ($oForm == "Genero") {
         $vDadosMusica[$nCont][] = $_GET['txtAudioMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txbmidia'];
         mysqli_stmt_bind_param('ssiisss', ...$vDadosMusica);
-
-        mysqli_stmt_execute($oCmd);
-        $vCodMusica = mysqli_insert_id($conexao)
     }
 
     mysqli_stmt_prepare($oCmd, 'INSERT INTO FAIXAS (FXSALBUM, FXSMUSICA, FXSPOSICAO) VALUES (?, ?, ?)');
 
-    for ($nCont= 0; $nCont < $nQtd; $nCont++)
-    {
-        mysqli_stmt_bind_param('iii', $nCodgAlbum, $vCodMusica[$nCont], $nCont);
+    for ($nCont = 0; $nCont < $nQtd; $nCont++) {
+        mysqli_stmt_bind_param($oCmd, 'iii', $nCodgAlbum, $vCodMusica[$nCont], $nCont);
         mysqli_stmt_execute($oCmd);
     }
-    myqli_commit($conexao)
-
+    mysqli_commit($conexao);
 } else if ($oForm == "Insturmento") {
     $oInsNome = $_GET['txbNome'];
     $oInsTipo = $_GET['slcTipo'];
