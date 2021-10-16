@@ -17,12 +17,34 @@ body {
 	background: linear-gradient(-45deg, #23a6d5, #23d5ab);
 	background-size: 200% 200%;
 	animation: gradient 15s ease infinite;
-	height: 100vh;
+	height: 100%;
+}
+body > a {
+	position: fixed;
+	top: 90%;
+	left: 94%;
+}
+body > a img {
+	width: 5vw;
 }
 .musica {
+	width: max-content;
+	margin-top: 0.5em;
 	max-width: 50%;
 	display: flex;
 	font-size: 3rem;
 	flex-wrap: wrap;
 	flex-direction: column;
+}
+.musica > a {
+	font-weight: 700;
+}
+.musica > * {
+	transition: 0.5s;
+}
+.musica > *:hover {
+	font-size: 3.3rem;
+}
+.musica > p {
+	margin-top: 0;
 }
