@@ -57,12 +57,15 @@ if ($oForm == "Genero") {
         $vDadosMusica[$nCont][] = $_GET['txtDurMusca'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txbgenero'][$nCont];
 
-        $vDadosMusica[$nCont][] = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : null;
-        $vDadosMusica[$nCont][] = isset($_GET['slcArtista']) ? $_GET['slcArtista'] : null;
+        $vDadosMusica[$nCont][] = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : '';
+        $vDadosMusica[$nCont][] = isset($_GET['slcArtista']) ? $_GET['slcArtista'] : '';
 
         $vDadosMusica[$nCont][] = $_GET['txaLetraMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtVideoMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtAudioMusica'][$nCont];
+        echo "<br>";
+        var_dump($vDadosMusica);
+        echo "<br>";
         var_dump($oCmd);
         mysqli_stmt_bind_param($oCmd, 'ssiiisss', ...$vDadosMusica);
         mysqli_stmt_execute($oCmd);
