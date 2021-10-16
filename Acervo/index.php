@@ -19,7 +19,7 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 <body>
 	<header>
 		<img class="logo" src="./images/BananaDeCalcinha.png" />
-		<p>SITE ACERVO</p>
+		<p>Acervo: Banana de Calcinha</p>
 		<form action="busca.php">
 			<input type="image" class="search" src="./images/Lupa.svg" />
 			<input name="txbPesquisa" id="txbPesquisa" />
