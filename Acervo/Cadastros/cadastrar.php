@@ -30,6 +30,8 @@ if ($oForm == "Genero") {
     $oAlbArtista = $_GET['txbArtista'];
     $oAlMidia = $_GET['txbmidia'];
 
+    move_uploaded_file($_FILES['txbcapa']['tmp_name'], $_FILES['txbcapa']['name']);
+
     if ($oAlbBanda == "") {
         $oQuery = "INSERT INTO ALBUNS (ALBNOME, ALBGRAVADORA, ALBGENERO, ALBDTLANCAMENTO, ALBARTISTA, ALBMIDIA) VALUES ('" . $oAlbNome . "','" . $oAlbGrav . "', '" . $oAlbGen . "', '" . $oAlbDtLanc . "', '" . $oAlbArtista . "','" . $oAlMidia . "')";
         echo ($oQuery);
@@ -46,20 +48,23 @@ if ($oForm == "Genero") {
 
     $oCmd = mysqli_stmt_init($conexao);
     mysqli_stmt_prepare($oCmd, "INSER INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO, MSCMIDIA) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][$nCont], $_GET['txtDurMusca'][$nCont], $_GET['txbgenero'][$nCont], $_GET['txbBanda'], $_GET['txbArtista'], $_GET['txaLetraMusica'][$nCont], $_GET['txtVideoMusica'][$nCont], $_GET['txtAudioMusica'][$nCont], $_GET['txbmidia']);
 
     for ($nCont= 0; $nCont < $nQtd; $nCont++)
     {
-    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][$nCont], $_GET['txtDurMusca'][$nCont], $_GET['txbgenero'][$nCont], $_GET['txbBanda'], $_GET['txbArtista'], $_GET['txaLetraMusica'][$nCont], $_GET['txtVideoMusica'][$nCont], $_GET['txtAudioMusica'][$nCont], $_GET['txbmidia']);
-    mysqli_stmt_execute($oCmd);
-    $vCodMusica = mysqli_insert_id($conexao)
+        $vDadosMusca[$nCont] = array();
+        $vDadosMusca[$nCont][]
+
+        mysqli_stmt_execute($oCmd);
+        $vCodMusica = mysqli_insert_id($conexao)
     }
 
     mysqli_stmt_prepare($oCmd, 'INSERT INTO FAIXAS (FXSALBUM, FXSMUSICA, FXSPOSICAO) VALUES (?, ?, ?)');
 
     for ($nCont= 0; $nCont < $nQtd; $nCont++)
     {
-    mysqli_stmt_bind_param('iii', $nCodgAlbum, $vCodMusica[$nCont], $nCont);
-    mysqli_stmt_execute($oCmd);
+        mysqli_stmt_bind_param('iii', $nCodgAlbum, $vCodMusica[$nCont], $nCont);
+        mysqli_stmt_execute($oCmd);
     }
     myqli_commit($conexao)
 
