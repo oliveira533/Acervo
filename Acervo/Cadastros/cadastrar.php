@@ -4,6 +4,10 @@ session_start();
 $oForm = $_SESSION['form'];
 require("../conexao.php");
 
+$nQtd = 0;
+
+$nCodigAlbum = 0;
+
 mysqli_begin_transaction($conexao)
 
 $oQuery;
@@ -35,9 +39,18 @@ if ($oForm == "Genero") {
 
     }
 
+    $nCodigAlbum = mysqli_insert_id(../conexão);
+
+    $nQtd = count($_GET['txtNomeMusica'])
+
     $oCmd = mysqli_stmt_init($conexao);
-    mysqli_stmt_prepare($oCmd, "INSER INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
-    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][0], $_GET['txtDurMusca'][0], $_GET['txbgenero'][0], $_GET['txbBanda'][0], $_GET['txbArtista'][0], $_GET['txaLetraMusica'][0], $_GET['txtVideoMusica'][0], $_GET['txtAudioMusica'][0 ]);
+    mysqli_stmt_prepare($oCmd, "INSER INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO, MSCMIDIA) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+
+    for ($nCont= 0; $nCont < $nQtd; $nCont++)
+    {
+    mysqli_stmt_bind_param('ssiisss', $_GET['txtNomeMusica'][0], $_GET['txtDurMusca'][0], $_GET['txbgenero'][0], $_GET['txbBanda'], $_GET['txbArtista'], $_GET['txaLetraMusica'][0], $_GET['txtVideoMusica'][0], $_GET['txtAudioMusica'][0], $_GET['txbmidia']);
+    mysqli_stmt_execute($oCmd);
+    }
 
 } else if ($oForm == "Insturmento") {
     $oInsNome = $_GET['txbNome'];
