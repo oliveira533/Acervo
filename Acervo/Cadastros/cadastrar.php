@@ -26,7 +26,7 @@ if ($oForm == "Genero") {
     $oAlbGrav = $_GET['txbgravadora'];
     $oAlbGen = $_GET['txbgenero'];
     $oAlbDtLanc = $_GET['TxbDatadeLancamento'];
-    $oAlbBanda = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : $_GET['slcArtista'];
+    $oAlbBanda = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : isset($_GET['slcArtista']) ? $_GET['slcArtista'] : '';
     $oAlMidia = $_GET['txbmidia'];
 
     if (isset($_FILES['txbcapa'])) {
