@@ -18,7 +18,6 @@ session_start();
             <ul>
                 <li><a href="#" style="color: #333;"><img class="imgusu" src="<?php echo "https://avatars.dicebear.com/api/gridy/" . $_SESSION["USRNOME"] . ".svg"; ?>"></a></li>
                 <li><a href=" cadastro.php"><button>Inserir conteúdo</button></a></li>
-                <li><a href="https://c.tenor.com/MhIARALUqvAAAAAd/ednaldo-pereira-vale-nada.gif"><button>Alterar dados</button></a></li>
             </ul>
         </nav>
         <div class="Musica tudo">
