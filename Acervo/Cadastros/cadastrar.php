@@ -83,7 +83,7 @@ if ($oForm == "Genero") {
         mysqli_stmt_execute($oCmd);
     }
     mysqli_commit($conexao);
-} else if ($oForm == "Insturmento") {
+} else if ($oForm == "Instrumento") {
     $oInsNome = $_GET['txbNome'];
     $oInsTipo = $_GET['slcTipo'];
 
@@ -93,19 +93,16 @@ if ($oForm == "Genero") {
     // insert na tabela instrumentos
 } else if ($oForm == "Midia") {
     $oMdsNome = $_GET['txbNome'];
-    $oMdsOnline = $_GET['Online'];
+    $oMdsOnline = isset($_GET['Online']) ? $_GET['Online'] : 'off';
 
     if ($oMdsOnline == "on") {
-        $oMdsOnline = 1;
-        $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "'. 0)";
-        mysqli_query($conexao, $oQuery);
-        // insert de midias não online
-    } else {
-        $oMdsOnline = 0;
         $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "'. 1)";
         mysqli_query($conexao, $oQuery);
         // insert de midias online
-
+    } else {
+        $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "'. 0)";
+        mysqli_query($conexao, $oQuery);
+        // insert de midias não online
     }
     mysqli_commit($conexao);
 } else if ($oForm == "Gravadora") {

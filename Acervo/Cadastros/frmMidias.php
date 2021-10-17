@@ -19,10 +19,8 @@ $_SESSION['form'] = "Midia";
         <label for="txbNome">Nome</label><input type="text" name="txbNome" id="txbNome"><br>
         <p>A mídia é online? </p>
 
-        <div>
-            <label for="Online">Online</label>
-            <input type="checkbox" id="Online" name="Online" checked>
-        </div>
+        <label for="Online">Online</label>
+        <input type="checkbox" id="Online" name="Online" checked>
 
         <br>
         <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
