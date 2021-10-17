@@ -28,6 +28,7 @@ if ($oForm == "Genero") {
     $oAlbDtLanc = $_GET['TxbDatadeLancamento'];
     $oAlbBanda = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : $_GET['slcArtista'];
     $oAlMidia = $_GET['txbmidia'];
+    $oAlbArtista = $_GET['slcArtista'];
 
     if (isset($_FILES['txbcapa'])) {
         move_uploaded_file($_FILES['txbcapa']['tmp_name'], $_FILES['txbcapa']['name']);
@@ -50,15 +51,15 @@ if ($oForm == "Genero") {
     mysqli_stmt_prepare($oCmd, "INSERT INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 
     if (!$oCmd)
-        echo "Erro em conectar ao servidor tente novamente mais tarde!";
+        echo "porra";
     for ($nCont = 0; $nCont < $nQtd; $nCont++) {
         $vDadosMusica[$nCont] = array();
         $vDadosMusica[$nCont][] = $_GET['txtNomeMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtDurMusca'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txbgenero'][$nCont];
 
-        $vDadosMusica[$nCont][] = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : '';
-        $vDadosMusica[$nCont][] = isset($_GET['slcArtista']) ? $_GET['slcArtista'] : '';
+        $vDadosMusica[$nCont][] = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : null;
+        $vDadosMusica[$nCont][] = isset($_GET['slcArtista']) ? $_GET['slcArtista'] : null;
 
         $vDadosMusica[$nCont][] = $_GET['txaLetraMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtVideoMusica'][$nCont];
