@@ -82,7 +82,7 @@ if ($oForm == "Genero") {
     $oInsNome = $_GET['txbNome'];
     $oInsTipo = $_GET['slcTipo'];
 
-    $oQuery = "INSERT INTO INSTRUMNENTOS (INSNOE, INSTIPO) VALUES ('" . $oInsNome . "', " . $oInsTipo . ")";
+    $oQuery = "INSERT INTO INSTRUMENTOS (INSNOME, INSTIPO) VALUES ('" . $oInsNome . "', " . $oInsTipo . ")";
     mysqli_query($conexao, $oQuery);
 } else if ($oForm == "Midia") {
     $oMdsNome = $_GET['txbNome'];
@@ -117,7 +117,6 @@ if ($oForm == "Genero") {
     $bndInicio = $_GET['TxbInicio'];
     $bndFim = $_GET['TxbFinal'];
     $bndDesc = $_GET['txaBDdesc'];
-
     $oQuery = "INSERT INTO BANDA (BDSNOME, BDSDTINICIO, BDSDTTERMINO, BDSAPRESENTACAO) VALUES ('" . $bndNome . "', '" . $bndInicio . "', '" . $bndFim . "', '" . $bndDesc . "')";
     mysqli_query($conexao, $oQuery);
 }
