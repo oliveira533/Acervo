@@ -19,9 +19,13 @@ nav {
 	color: black;
 }
 .img-home {
+	width: 5rem;
+	height: 5rem;
 	float: right;
+	position: fixed;
+	top: 90%;
+	left: 94%;
 	filter: invert(1);
-	width: 4rem;
 }
 .imgbanda {
 	width: 96%;
