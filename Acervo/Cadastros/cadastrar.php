@@ -133,8 +133,6 @@ if ($oForm == "Genero") {
     // insert de bandas
     $nArtis = count($_GET['slcArtista']);
 
-    mysqli_begin_transaction($conexao);
-
     $oCmd = mysqli_stmt_init($conexao);
     mysqli_stmt_prepare($oCmd, "INSERT INTO INTEGRANTES(ITGBANDA, ITGARTISTA, ITGDTINICIO, ITGDTTERMINO, ITGINSTRUMENTO) VALUES (?, ?, ?, ?, ?)");
     // insert de integrantes da banda
