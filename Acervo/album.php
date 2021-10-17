@@ -37,7 +37,11 @@ $aDados = mysqli_fetch_array($consulta);
 					<div class="card-body">
 						<h5 class="card-title"><?php echo $album ?></h5>
 						<p class="card-text margin2">Banda/Artista <br>
-							<a href="<?php echo "banda.php?banda=" . urlencode($aDados[3]) ?>">
+							<a href="<?php
+										if ($aDados[3] == "Mais de 1 Criador")
+											echo "#";
+										else
+											echo "banda.php?banda=" . urlencode($aDados[3]) ?>">
 								<?php echo $aDados[3] ?>
 							</a>
 						</p>
