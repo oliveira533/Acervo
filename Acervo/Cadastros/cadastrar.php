@@ -125,6 +125,7 @@ if ($oForm == "Genero") {
     $nCodBanda = mysqli_insert_id($conexao);
 
     $vDadosBanda[] = array();
+    echo 'caiu aqui';
 
     //if (!$oCmd)
     for ($nCont = 0; $nCont < $nArtis; $nCont++) {
@@ -137,10 +138,8 @@ if ($oForm == "Genero") {
 
         $vDadosBanda[$nCont][] = $_GET['slcInstrumento'][$nCont];
         mysqli_stmt_bind_param($oCmd, 'iissi', ...$vDadosBanda[$nCont]);
+        echo 'vai pra porra';
     }
     mysqli_commit($conexao);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
 }
 //header('Location:../index.php');
