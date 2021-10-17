@@ -134,7 +134,7 @@ if ($oForm == "Genero") {
         $vDadosBanda[][$nCont][] = isset($_GET['txtFim']) ? $_GET['txtFim'] : null;
 
         $vDadosBanda[][$nCont][] = $_GET['slcInstrumento'][$nCont];
-        mysqli_stmt_bind_param($oCmd, 'iissi', ...$vDadosMusica[$nCont]);
+        mysqli_stmt_bind_param($oCmd, 'iissi', ...$vDadosBanda[$nCont]);
         mysqli_stmt_execute($oCmd);
     }
 }
