@@ -5,7 +5,7 @@ $_SESSION['form'] = "Artista";
 <html>
 
 <body>
-    <form action="cadastrar.php">
+    <form action="./Cadastros/cadastrar.php">
         <label for="txbNome">Nome</label><input type="text" name="txbNome" id="txbNome"><br>
         <label for="TxbInicio">Data de Inicio da Carreira</label><input type="date" name="txbInicio">
         <label for="TxbFinal">Data de Termino da Carreira</label><input type="date" name="txbFinal">

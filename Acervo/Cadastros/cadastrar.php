@@ -6,6 +6,10 @@ require("../conexao.php");
 
 $nQtd = 0;
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $nCodgAlbum = 0;
 
 $vCodMusica = array();
@@ -102,22 +106,24 @@ if ($oForm == "Genero") {
     }
 } else if ($oForm == "Gravadora") {
     $grvNome = $_GET['txbNome'];
-    $grvInin = $_GET['TxbInicio'];
-    $grvFim = $_GET['TxbFinal'];
+    $grvInin = $_GET['txbInicio'];
+    $grvFim = $_GET['txbFinal'];
 
     $oQuery = "INSERT INTO GRAVADORAS (GRVNOME, GRVDTFUNDACAO, GRVDTFALENCIA) VALUES ('" . $grvNome . "','" . $grvInin . "','" . $grvFim . "')";
     mysqli_query($conexao, $oQuery);
     // insert de gravadoras
 } else if ($oForm == "Artista") {
     $artNome = $_GET['txbNome'];
-    $artInicio = $_GET['TxbInicio'];
-    $artFim = $_GET['TxbFinal'];
+    $artInicio = $_GET['txbInicio'];
+    $artFim = $_GET['txbFinal'];
     $artDesc = $_GET['txaAtrdesc'];
 
-    $oQuery = "INSERT INTO ARTISTAS (ARTNOME, ARTDTINICIO, ARTDTTERMINO, ATRAPRESENTACAO) VALUES ('" . $artNome . "', '" . $artInicio . "', '" . $artFim . "', '" . $artDesc . "')";
+    $oQuery = "INSERT INTO ARTISTAS (ARTNOME, ARTDTINICIO, ARTDTTERMINO, ARTAPRESENTACAO) VALUES ('" . $artNome . "', '" . $artInicio . "', '" . $artFim . "', '" . $artDesc . "')";
     mysqli_query($conexao, $oQuery);
-    // insert de artistas
+    echo $oQuery;
 } else if ($oForm == "Banda") {
+    mysqli_begin_transaction($conexao);
+
     $bndNome = $_GET['txbNome'];
     $bndInicio = $_GET['txbInicio'];
     $bndFim = isset($_GET['TxbFinal']) ? $_GET['TxbFinal'] : null;;
@@ -147,7 +153,10 @@ if ($oForm == "Genero") {
 
         $vDadosBanda[$nCont][] = $_GET['slcInstrumento'][$nCont];
         mysqli_stmt_bind_param($oCmd, 'iissi', ...$vDadosBanda[$nCont]);
-        echo 'vai pra porra';
+
+        mysqli_stmt_execute($oCmd);
+
+        var_dump($oCmd);
     }
     mysqli_commit($conexao);
 }
