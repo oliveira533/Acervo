@@ -110,12 +110,12 @@ if ($oForm == "Genero") {
 } else if ($oForm == "Banda") {
     $bndNome = $_GET['txbNome'];
     $bndInicio = $_GET['txbInicio'];
-    $bndFim = $_GET['TxbFinal'];
+    $bndFim = isset($_GET['TxbFinal']) ? $_GET['TxbFinal'] : null;;
     $bndDesc = $_GET['txaBDdesc'];
     $oQuery = "INSERT INTO BANDA (BDSNOME, BDSDTINICIO, BDSDTTERMINO, BDSAPRESENTACAO) VALUES ('" . $bndNome . "', '" . $bndInicio . "', '" . $bndFim . "', '" . $bndDesc . "')";
     mysqli_query($conexao, $oQuery);
 
-    $nArtis = count($_GET['txtCodBanda[]']);
+    $nArtis = count($_GET['txtCodBandaslcArtista[]']);
 
     $oCmd = mysqli_stmt_init($conexao);
     mysqli_stmt_prepare($oCmd, "INSERT INTO INTEGRANTES(ITGBANDA, ITGARTISTA, ITGDTINICIO, ITGDTTERMINO, ITGINSTRUMENTO) VALUES (?, ?, ?, ?, ?)");

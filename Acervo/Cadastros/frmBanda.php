@@ -15,7 +15,6 @@ $_SESSION['form'] = "Banda";
             <table>
                 <tbody id="oMusicas">
                     <tr id="oLinhaMusica">
-                        <td> <input type="hidden" name="txtCodBanda[]" value="0"> </td>
                         <td>
                             <select name="slcArtista[]" id="slcArtista">
                             <?php
