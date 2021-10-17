@@ -144,7 +144,7 @@ if ($oForm == "Genero") {
 
         $vDadosBanda[$nCont][] = $_GET['slcInstrumento'][$nCont];
         mysqli_stmt_bind_param($oCmd, 'iissi', ...$vDadosBanda[$nCont]);
-        
+        var_dump($oCmd);
     }
     mysqli_commit($conexao);
 }
