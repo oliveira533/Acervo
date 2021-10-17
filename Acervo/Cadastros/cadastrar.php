@@ -35,9 +35,11 @@ if ($oForm == "Genero") {
     if ($oAlbBanda == "") {
         $oQuery = "INSERT INTO ALBUNS (ALBNOME, ALBGRAVADORA, ALBGENERO, ALBDTLANCAMENTO, ALBARTISTA, ALBMIDIA) VALUES ('" . $oAlbNome . "','" . $oAlbGrav . "', '" . $oAlbGen . "', '" . $oAlbDtLanc . "', '" . $oAlbArtista . "','" . $oAlMidia . "')";
         mysqli_query($conexao, $oQuery);
+        echo $oQuery;
     } else {
         $oQuery = "INSERT INTO ALBUNS (ALBNOME, ALBGRAVADORA, ALBGENERO, ALBDTLANCAMENTO, ALBBANDA, ALBMIDIA) VALUES ('" . $oAlbNome . "','" . $oAlbGrav . "', '" . $oAlbGen . "', '" . $oAlbDtLanc . "', '" . $oAlbBanda . "','" . $oAlMidia . "')";
         mysqli_query($conexao, $oQuery);
+        echo $oQuery;
     }
     $nCodgAlbum = mysqli_insert_id($conexao);
 
@@ -48,13 +50,13 @@ if ($oForm == "Genero") {
 
     $vDadosMusica[] = array();
 
-    if (!$oCmd)
+    //if (!$oCmd)
     for ($nCont = 0; $nCont < $nQtd; $nCont++) {
 
         $vDadosMusica[$nCont][] = $_GET['txtNomeMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtDurMusca'][$nCont];
 
-        $vDadosMusica[$nCont][] = $_GET['txbgenero'][$nCont];
+        $vDadosMusica[$nCont][] = $_GET['txbgenero'];
         $vDadosMusica[$nCont][] = isset($_GET['slcBanda']) ? $_GET['slcBanda'] : null;
 
         $vDadosMusica[$nCont][] = isset($_GET['slcArtista']) ? $_GET['slcArtista'] : null;
@@ -64,6 +66,9 @@ if ($oForm == "Genero") {
         $vDadosMusica[$nCont][] = $_GET['txtAudioMusica'][$nCont];
         mysqli_stmt_bind_param($oCmd, 'ssiiisss', ...$vDadosMusica[$nCont]);
         mysqli_stmt_execute($oCmd);
+        var_dump($oCmd);
+
+        $vCodMusica[] = mysqli_insert_id($conexao);
     }
 
     mysqli_stmt_prepare($oCmd, 'INSERT INTO FAIXAS (FXSALBUM, FXSMUSICA, FXSPOSICAO) VALUES (?, ?, ?)');
@@ -71,6 +76,7 @@ if ($oForm == "Genero") {
     for ($nCont = 0; $nCont < $nQtd; $nCont++) {
         mysqli_stmt_bind_param($oCmd, 'iii', $nCodgAlbum, $vCodMusica[$nCont], $nCont);
         mysqli_stmt_execute($oCmd);
+        var_dump($oCmd);
     }
     mysqli_commit($conexao);
 } else if ($oForm == "Insturmento") {
@@ -110,10 +116,11 @@ if ($oForm == "Genero") {
 } else if ($oForm == "Banda") {
     $bndNome = $_GET['txbNome'];
     $bndInicio = $_GET['txbInicio'];
-    $bndFim = isset($_GET['TxbFinal']) ? $_GET['TxbFinal'] : null;;
+    $bndFim = isset($_GET['txbFinal']) ? $_GET['txbFinal'] : null;
     $bndDesc = $_GET['txaBDdesc'];
-    $oQuery = "INSERT INTO BANDA (BDSNOME, BDSDTINICIO, BDSDTTERMINO, BDSAPRESENTACAO) VALUES ('" . $bndNome . "', '" . $bndInicio . "', '" . $bndFim . "', '" . $bndDesc . "')";
+    $oQuery = "INSERT INTO BANDAS (BDSNOME, BDSDTINICIO, BDSDTTERMINO, BDSAPRESENTACAO) VALUES ('" . $bndNome . "', '" . $bndInicio . "', '" . $bndFim . "', '" . $bndDesc . "')";
     mysqli_query($conexao, $oQuery);
+    echo $oQuery;
 
     $nArtis = count($_GET['slcArtista']);
 
@@ -125,9 +132,8 @@ if ($oForm == "Genero") {
     $nCodBanda = mysqli_insert_id($conexao);
 
     $vDadosBanda[] = array();
-    echo 'caiu aqui';
 
-    if (!$oCmd)
+    //if (!$oCmd)
     for ($nCont = 0; $nCont < $nArtis; $nCont++) {
 
         $vDadosBanda[$nCont][] = $nCodBanda;
@@ -138,8 +144,9 @@ if ($oForm == "Genero") {
 
         $vDadosBanda[$nCont][] = $_GET['slcInstrumento'][$nCont];
         mysqli_stmt_bind_param($oCmd, 'iissi', ...$vDadosBanda[$nCont]);
-        echo 'vai pra porra';
+        var_dump($oCmd);
     }
     mysqli_commit($conexao);
 }
 //header('Location:../index.php');
+?>
