@@ -41,7 +41,7 @@ if ($oForm == "Genero") {
     } else {
         $oQuery = "INSERT INTO ALBUNS (ALBNOME, ALBGRAVADORA, ALBGENERO, ALBDTLANCAMENTO, ALBBANDA, ALBMIDIA) VALUES ('" . $oAlbNome . "','" . $oAlbGrav . "', '" . $oAlbGen . "', '" . $oAlbDtLanc . "', '" . $oAlbBanda . "','" . $oAlMidia . "')";
         mysqli_query($conexao, $oQuery);
-                //faz insert n tabela abuns com uma banda
+        //faz insert n tabela abuns com uma banda
 
     }
     $nCodgAlbum = mysqli_insert_id($conexao);
@@ -53,7 +53,6 @@ if ($oForm == "Genero") {
     // preparando um comando insert para a tabela musicas
     $vDadosMusica[] = array();
 
-    if (!$oCmd)
     for ($nCont = 0; $nCont < $nQtd; $nCont++) {
 
         $vDadosMusica[$nCont][] = $_GET['txtNomeMusica'][$nCont];
@@ -138,7 +137,6 @@ if ($oForm == "Genero") {
     $vDadosBanda[] = array();
     echo 'caiu aqui';
 
-    if (!$oCmd)
     for ($nCont = 0; $nCont < $nArtis; $nCont++) {
 
         $vDadosBanda[$nCont][] = $nCodBanda;
