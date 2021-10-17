@@ -28,14 +28,16 @@
         <div>
             <?php
             require("conexao.php");
-            
-            if(isset($_GET['form'])){
-            $form = $_GET['form'];
-            echo "<h2>$form</h2>";
-            include("./Cadastros/frm" . $_GET['form'] . ".php");
-        }
+
+            if (isset($_GET['form'])) {
+                $form = $_GET['form'];
+                echo "<h2>$form</h2>";
+                include("./Cadastros/frm" . $_GET['form'] . ".php");
+            }
             ?>
         </div>
+        <a href="index.php"><img src="https://www.svgrepo.com/show/40892/home-button.svg" alt="" width="40px" /></a>
+
     </main>
 </body>
 

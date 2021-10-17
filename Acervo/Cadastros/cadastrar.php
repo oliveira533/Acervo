@@ -102,7 +102,6 @@ if ($oForm == "Genero") {
         $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "', 0)";
         // insert de midias não online
     }
-    echo "<br>" . $oQuery;
     mysqli_query($conexao, $oQuery);
     mysqli_commit($conexao);
 } else if ($oForm == "Gravadora") {
