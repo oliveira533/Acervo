@@ -47,7 +47,7 @@ if ($oForm == "Genero") {
     mysqli_stmt_prepare($oCmd, "INSERT INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 
     $vDadosMusica[] = array();
-    
+
     if (!$oCmd)
     for ($nCont = 0; $nCont < $nQtd; $nCont++) {
 
@@ -110,7 +110,7 @@ if ($oForm == "Genero") {
 } else if ($oForm == "Banda") {
     $bndNome = $_GET['txbNome'];
     $bndInicio = $_GET['txbInicio'];
-    $bndFim = $_GET['TxbFitxbFinalnal'];
+    $bndFim = $_GET['TxbFinal'];
     $bndDesc = $_GET['txaBDdesc'];
     $oQuery = "INSERT INTO BANDA (BDSNOME, BDSDTINICIO, BDSDTTERMINO, BDSAPRESENTACAO) VALUES ('" . $bndNome . "', '" . $bndInicio . "', '" . $bndFim . "', '" . $bndDesc . "')";
     mysqli_query($conexao, $oQuery);
@@ -137,7 +137,5 @@ if ($oForm == "Genero") {
         mysqli_stmt_bind_param($oCmd, 'iissi', ...$vDadosMusica[$nCont]);
         mysqli_stmt_execute($oCmd);
     }
-
-    mysqli_stmt_prepare($oCmd, 'INSERT INTO FAIXAS (FXSALBUM, FXSMUSICA, FXSPOSICAO) VALUES (?, ?, ?)');
 }
-header('Location:../index.php');
+//header('Location:../index.php');
