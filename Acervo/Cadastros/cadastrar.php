@@ -111,11 +111,11 @@ if ($oForm == "Genero") {
     $artFim = $_GET['TxbFinal'];
     $artDesc = $_GET['txaAtrdesc'];
 
-    $oQuery = "INSERT INTO ARTISTAS (ARTNOME, ARTDTINICIO, ARTDTTERMINO, ATRAPRESENTACAO) VALUES ('" . $artNome . "', '" . $artInicio . "', '" . $artFim . "', '" . $artDesc . "')";
+    $oQuery = "INSERT INTO ARTISTAS (ARTNOME, ARTDTINICIO, ARTDTTERMINO, ARTAPRESENTACAO) VALUES ('" . $artNome . "', '" . $artInicio . "', '" . $artFim . "', '" . $artDesc . "')";
     mysqli_query($conexao, $oQuery);
 }else if ($oForm == "Banda") {
     mysqli_begin_transaction($conexao);
-    
+
     $bndNome = $_GET['txbNome'];
     $bndInicio = $_GET['txbInicio'];
     $bndFim = isset($_GET['txbFinal']) ? $_GET['txbFinal'] : null;
