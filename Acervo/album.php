@@ -8,6 +8,7 @@ $sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), IFNULL(GRVNOME
 	IFNULL(ARTNOME,IFNULL(BDSNOME, 'Mais de 1 Criador')), GNRNOME, MDSNOME FROM ALBUNS LEFT JOIN GRAVADORAS ON ALBCODIGO = GRVCODIGO 
 	LEFT JOIN GENEROS ON ALBGENERO = GNRCODIGO LEFT JOIN MIDIAS ON ALBMIDIA = MDSCODIGO LEFT JOIN ARTISTAS on ALBARTISTA = ARTCODIGO 
 	LEFT JOIN BANDAS on ALBBANDA = BDSCODIGO WHERE ALBNOME LIKE '%$album%';";
+	// select para trazer a gravadora, genero, midias, artista e banda de um album    
 $consulta = mysqli_query($conexao, $sql);
 //echo $sql;
 $aDados = mysqli_fetch_array($consulta);
@@ -62,6 +63,8 @@ $aDados = mysqli_fetch_array($consulta);
 								$consulta = mysqli_query($conexao, $sql);
 								while ($vReg = mysqli_fetch_assoc($consulta)) {
 									echo '<li>' . $vReg['MSCNOME'] . '</li>';
+										// select para trazer as musicas do album   
+
 								}
 								?>
 							</ul>
@@ -74,6 +77,7 @@ $aDados = mysqli_fetch_array($consulta);
 								$consulta = mysqli_query($conexao, $sql);
 								while ($vReg = mysqli_fetch_assoc($consulta)) {
 									echo '<li>' . $vReg['MSCDURACAO'] . '</li>';
+									// select para trazer duração das musicas do album   
 								}
 								?>
 							</ul>
