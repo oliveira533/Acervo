@@ -96,14 +96,14 @@ if ($oForm == "Genero") {
     $oMdsOnline = isset($_GET['Online']) ? $_GET['Online'] : 'off';
 
     if ($oMdsOnline == "on") {
-        $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "'. 1)";
-        mysqli_query($conexao, $oQuery);
+        $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "', 1)";
         // insert de midias online
     } else {
-        $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "'. 0)";
-        mysqli_query($conexao, $oQuery);
+        $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "', 0)";
         // insert de midias não online
     }
+    echo "<br>" . $oQuery;
+    mysqli_query($conexao, $oQuery);
     mysqli_commit($conexao);
 } else if ($oForm == "Gravadora") {
     $grvNome = $_GET['txbNome'];
