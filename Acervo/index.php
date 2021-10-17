@@ -62,10 +62,16 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 		<article>
 			<ul>
 				<?php
-				$num1 = random_int(1, $nMaxAlbuns);
-				$num2 = random_int(1, $nMaxAlbuns);
-				$num3 = random_int(1, $nMaxAlbuns);
-				$num4 = random_int(1, $nMaxAlbuns);
+				$num1 = 1;
+				$num2 = 1;
+				$num3 = 1;
+				$num4 = 1;
+				while (($num1 == $num2) || ($num3 == $num4) || ($num2 == $num3) || ($num1 == $num4)) {
+					$num1 = random_int(1, $nMaxAlbuns);
+					$num2 = random_int(1, $nMaxAlbuns);
+					$num3 = random_int(1, $nMaxAlbuns);
+					$num4 = random_int(1, $nMaxAlbuns);
+				}
 				$sql = "SELECT ALBCODIGO, ALBNOME FROM ALBUNS WHERE ALBCODIGO = $num1 OR ALBCODIGO = $num2 OR ALBCODIGO = $num3 OR ALBCODIGO = $num4";
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
