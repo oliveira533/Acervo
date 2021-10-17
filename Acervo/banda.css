@@ -3,7 +3,7 @@
 	border: 0;
 }
 body {
-	background: #00022e;
+	background: #113cfc;
 	color: #fff;
 }
 section {
@@ -12,12 +12,15 @@ section {
 	flex-direction: row;
 }
 nav {
-	font-size: 1.4rem;
-	width: 96%;
-	background: #0f9a68;
+	font-size: 2.4vh;
+	width: 100%;
+	height: max-content;
+	background: #1597e5;
 	color: black;
 }
 .img-home {
+	float: right;
+	filter: invert(1);
 	width: 4rem;
 }
 .imgbanda {
@@ -28,13 +31,14 @@ nav {
 article {
 	border: solid 2px black;
 	display: flex;
+	height: 80%;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
 footer {
 	border: solid black;
-	background: #0f9a68;
+	background: #1597e5;
 	text-align: center;
 }
 header {

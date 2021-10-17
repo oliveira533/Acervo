@@ -28,6 +28,7 @@ body {
 .descricao .card-img-top {
 	min-width: 100%;
 	min-height: 20%;
+	max-height: 25%;
 }
 .descricao a {
 	color: #c71919;
