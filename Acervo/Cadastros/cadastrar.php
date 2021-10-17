@@ -24,6 +24,8 @@ if ($oForm == "Genero") {
     $oQuery = "INSERT INTO GENEROS (GNRNOME, GNRDESCRICAO) VALUES ('" . $oGenNome . "', '" . $oGenDesc . "')";
     echo ($oQuery);
     mysqli_query($conexao, $oQuery);
+    mysqli_commit($conexao);
+
     //esse if faz um insert na tabela genero 
 } else if ($oForm == "Album") {
     $oAlbNome = $_GET['NoAl'];
@@ -87,6 +89,7 @@ if ($oForm == "Genero") {
 
     $oQuery = "INSERT INTO INSTRUMENTOS (INSNOME, INSTIPO) VALUES ('" . $oInsNome . "', " . $oInsTipo . ")";
     mysqli_query($conexao, $oQuery);
+    mysqli_commit($conexao);
     // insert na tabela instrumentos
 } else if ($oForm == "Midia") {
     $oMdsNome = $_GET['txbNome'];
@@ -104,13 +107,20 @@ if ($oForm == "Genero") {
         // insert de midias online
 
     }
+    mysqli_commit($conexao);
 } else if ($oForm == "Gravadora") {
     $grvNome = $_GET['txbNome'];
     $grvInin = $_GET['txbInicio'];
     $grvFim = $_GET['txbFinal'];
 
     $oQuery = "INSERT INTO GRAVADORAS (GRVNOME, GRVDTFUNDACAO, GRVDTFALENCIA) VALUES ('" . $grvNome . "','" . $grvInin . "','" . $grvFim . "')";
-    mysqli_query($conexao, $oQuery);
+    if (mysqli_query($conexao, $oQuery)) {
+        echo "pinto";
+    } else
+        echo "porra";
+    echo $oQuery;
+    mysqli_commit($conexao);
+
     // insert de gravadoras
 } else if ($oForm == "Artista") {
     $artNome = $_GET['txbNome'];
@@ -120,7 +130,7 @@ if ($oForm == "Genero") {
 
     $oQuery = "INSERT INTO ARTISTAS (ARTNOME, ARTDTINICIO, ARTDTTERMINO, ARTAPRESENTACAO) VALUES ('" . $artNome . "', '" . $artInicio . "', '" . $artFim . "', '" . $artDesc . "')";
     mysqli_query($conexao, $oQuery);
-    echo $oQuery;
+    mysqli_commit($conexao);
 } else if ($oForm == "Banda") {
     mysqli_begin_transaction($conexao);
 
