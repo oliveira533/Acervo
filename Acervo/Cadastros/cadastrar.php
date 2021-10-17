@@ -95,12 +95,10 @@ if ($oForm == "Genero") {
     $oMdsNome = $_GET['txbNome'];
     $oMdsOnline = isset($_GET['Online']) ? $_GET['Online'] : 'off';
 
-    echo $oMdsOnline;
     if ($oMdsOnline == "on") {
         $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "', 1)";
         // insert de midias online
     } else {
-        echo 'ee';
         $oQuery = "INSERT INTO MIDIAS (MDSNOME, MDSONLINE) VALUES ('" . $oMdsNome . "', 0)";
         // insert de midias não online
     }
