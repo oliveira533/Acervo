@@ -127,7 +127,7 @@ if ($oForm == "Genero") {
     $vDadosBanda[] = array();
     echo 'caiu aqui';
 
-    //if (!$oCmd)
+    if (!$oCmd)
     for ($nCont = 0; $nCont < $nArtis; $nCont++) {
 
         $vDadosBanda[$nCont][] = $nCodBanda;
