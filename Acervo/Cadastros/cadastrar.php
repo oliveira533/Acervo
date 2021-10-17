@@ -47,7 +47,7 @@ if ($oForm == "Genero") {
     mysqli_stmt_prepare($oCmd, "INSERT INTO MUSICAS(MSCNOME, MSCDURACAO, MSCGENERO, MSCBANDA, MSCARTISTA, MSCLETRA, MSCVIDEO, MSCAUDIO) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
 
     $vDadosMusica[] = array();
-
+    
     if (!$oCmd)
     for ($nCont = 0; $nCont < $nQtd; $nCont++) {
 
@@ -140,3 +140,4 @@ if ($oForm == "Genero") {
 
     mysqli_stmt_prepare($oCmd, 'INSERT INTO FAIXAS (FXSALBUM, FXSMUSICA, FXSPOSICAO) VALUES (?, ?, ?)');
 }
+header('Location:../index.php');
