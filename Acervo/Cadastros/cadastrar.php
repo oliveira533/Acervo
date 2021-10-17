@@ -120,3 +120,4 @@ if ($oForm == "Genero") {
     $oQuery = "INSERT INTO BANDA (BDSNOME, BDSDTINICIO, BDSDTTERMINO, BDSAPRESENTACAO) VALUES ('" . $bndNome . "', '" . $bndInicio . "', '" . $bndFim . "', '" . $bndDesc . "')";
     mysqli_query($conexao, $oQuery);
 }
+header('Location:../index.php');
