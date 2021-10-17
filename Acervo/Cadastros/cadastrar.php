@@ -49,7 +49,6 @@ if ($oForm == "Genero") {
     $vDadosMusica[] = array();
 
     if (!$oCmd)
-        echo "porra";
     for ($nCont = 0; $nCont < $nQtd; $nCont++) {
 
         $vDadosMusica[$nCont][] = $_GET['txtNomeMusica'][$nCont];
@@ -63,10 +62,6 @@ if ($oForm == "Genero") {
 
         $vDadosMusica[$nCont][] = $_GET['txtVideoMusica'][$nCont];
         $vDadosMusica[$nCont][] = $_GET['txtAudioMusica'][$nCont];
-        //echo "<br>";
-        //ar_dump($vDadosMusica);
-        //echo "<br>";
-        //var_dump($oCmd);
         mysqli_stmt_bind_param($oCmd, 'ssiiisss', ...$vDadosMusica[$nCont]);
         mysqli_stmt_execute($oCmd);
     }
@@ -114,9 +109,34 @@ if ($oForm == "Genero") {
     mysqli_query($conexao, $oQuery);
 } else if ($oForm == "Banda") {
     $bndNome = $_GET['txbNome'];
-    $bndInicio = $_GET['TxbInicio'];
-    $bndFim = $_GET['TxbFinal'];
+    $bndInicio = $_GET['txbInicio'];
+    $bndFim = $_GET['TxbFitxbFinalnal'];
     $bndDesc = $_GET['txaBDdesc'];
     $oQuery = "INSERT INTO BANDA (BDSNOME, BDSDTINICIO, BDSDTTERMINO, BDSAPRESENTACAO) VALUES ('" . $bndNome . "', '" . $bndInicio . "', '" . $bndFim . "', '" . $bndDesc . "')";
     mysqli_query($conexao, $oQuery);
+
+    $nArtis = count($_GET['txtCodBanda[]']);
+
+    $oCmd = mysqli_stmt_init($conexao);
+    mysqli_stmt_prepare($oCmd, "INSERT INTO INTEGRANTES(ITGBANDA, ITGARTISTA, ITGDTINICIO, ITGDTTERMINO, ITGINSTRUMENTO) VALUES (?, ?, ?, ?, ?)");
+
+    $nCodBanda = mysqli_insert_id($conexao);
+
+    $vDadosBanda[] = array();
+
+    if (!$oCmd)
+    for ($nCont = 0; $nCont < $nArtis; $nCont++) {
+
+        $vDadosBanda[][$nCont][] = $nCodBanda;
+        $vDadosBanda[][$nCont][] = $_GET['slcArtista'][$nCont];
+
+        $vDadosBanda[][$nCont][] = $_GET['txtInicio[]'][$nCont];
+        $vDadosBanda[][$nCont][] = isset($_GET['txtFim']) ? $_GET['txtFim'] : null;
+
+        $vDadosBanda[][$nCont][] = $_GET['slcInstrumento'][$nCont];
+        mysqli_stmt_bind_param($oCmd, 'iissi', ...$vDadosMusica[$nCont]);
+        mysqli_stmt_execute($oCmd);
+    }
+
+    mysqli_stmt_prepare($oCmd, 'INSERT INTO FAIXAS (FXSALBUM, FXSMUSICA, FXSPOSICAO) VALUES (?, ?, ?)');
 }
