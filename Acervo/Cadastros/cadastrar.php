@@ -48,8 +48,7 @@ if ($oForm == "Genero") {
 
     $vDadosMusica[] = array();
 
-    if (!$oCmd)
-        echo "porra";
+
     for ($nCont = 0; $nCont < $nQtd; $nCont++) {
 
         $vDadosMusica[$nCont][] = $_GET['txtNomeMusica'][$nCont];
