@@ -1,4 +1,10 @@
+html {
+	font-size: 10px;
+}
+
 .estrelas img {
+	width: 4rem;
+	height: auto;
 	background-color: #fff;
 }
 
@@ -7,4 +13,7 @@
 }
 .estrelas:hover img {
 	background-color: rgb(245, 223, 101);
+}
+span {
+	font-size: 2.5rem;
 }
