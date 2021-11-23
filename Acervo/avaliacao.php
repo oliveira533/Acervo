@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+require("conexao.php");
+?>
 <html lang="en">
 
 <head>
@@ -10,6 +14,23 @@
 </head>
 
 <body>
+    <?php
+    $sql = "SELECT MSCCODIGO, MSCNOME FROM MUSICAS";
+    $consulta = mysqli_query($conexao, $sql);
+    while ($vReg = mysqli_fetch_assoc($consulta)) {
+      echo "<div class='musica'>
+      <span>".$vReg["MSCNOME"]."</span>
+      <div class='estrelas'>
+          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-1' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
+          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-2' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
+          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-3' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
+          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-4' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
+          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-5' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
+      </div>
+  </div>";
+    }
+    mysqli_free_result($consulta);
+    ?>
     <div class="musica">
         <span>Musica Foda</span>
         <div class="estrelas">
