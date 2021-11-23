@@ -1,0 +1,10 @@
+.estrelas img {
+	background-color: #fff;
+}
+
+.estrelas img:hover ~ img {
+	background-color: #fff;
+}
+.estrelas:hover img {
+	background-color: rgb(245, 223, 101);
+}

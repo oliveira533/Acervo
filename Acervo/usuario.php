@@ -19,7 +19,7 @@ session_start();
             <ul>
                 <li><a href="#" style="color: #333;"><img class="imgusu" src="<?php echo "https://avatars.dicebear.com/api/gridy/" . $_SESSION["USRNOME"] . ".svg"; ?>"></a></li>
                 <li><a href="cadastro.php"><button>Inserir conteúdo</button></a></li>
-                <li><a href="avalicao.php"><button>Nós ajude avaliando musicas</button></a></li>
+                <li><a href="avaliacao.php"><button>Nós ajude avaliando musicas</button></a></li>
             </ul>
         </nav>
         <div class="Banda tudo">
