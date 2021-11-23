@@ -18,7 +18,8 @@ session_start();
         <nav class="menu aaa">
             <ul>
                 <li><a href="#" style="color: #333;"><img class="imgusu" src="<?php echo "https://avatars.dicebear.com/api/gridy/" . $_SESSION["USRNOME"] . ".svg"; ?>"></a></li>
-                <li><a href=" cadastro.php"><button>Inserir conteúdo</button></a></li>
+                <li><a href="cadastro.php"><button>Inserir conteúdo</button></a></li>
+                <li><a href="avalicao.php"><button>Nós ajude avaliando musicas</button></a></li>
             </ul>
         </nav>
         <div class="Banda tudo">
@@ -28,7 +29,7 @@ session_start();
                 require("conexao.php");
                 $sql = "SELECT ARTNOME FROM ARTISTAS WHERE ARTNOME LIKE ";
                 $nCont = 0;
-                foreach ($_SESSION["artistas"] as $artista) {
+                if (isset($_SESSION["artistas"])) foreach ($_SESSION["artistas"] as $artista) {
                     if ($nCont <= 4) {
                         $consulta = mysqli_query($conexao, $sql . "\"" . $artista . "\"");
                         echo "                
@@ -39,7 +40,7 @@ session_start();
                     $nCont++;
                 }
                 $sql = "SELECT BDSNOME FROM BANDAS WHERE BDSNOME LIKE ";
-                foreach ($_SESSION["bandas"] as $bandas) {
+                if (isset($_SESSION["bandas"])) foreach ($_SESSION["bandas"] as $bandas) {
                     if ($nCont <= 4) {
                         $consulta = mysqli_query($conexao, $sql . "\"" . $bandas . "\"");
                         echo  $sql . "\"" . $bandas . "\"";
@@ -60,7 +61,7 @@ session_start();
                 require("conexao.php");
                 $sql = "SELECT ALBNOME FROM ALBUNS WHERE ALBNOME LIKE ";
                 $nCont = 0;
-                foreach ($_SESSION["albuns"] as $albuns) {
+                if (isset($_SESSION["albuns"])) foreach ($_SESSION["albuns"] as $albuns) {
                     if ($nCont <= 4) {
                         $consulta = mysqli_query($conexao, $sql . "'" . $albuns . "'");
                         echo "                
