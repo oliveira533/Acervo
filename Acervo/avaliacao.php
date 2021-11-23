@@ -10,13 +10,15 @@
 </head>
 
 <body>
-    <span>Musica Foda</span>
-    <div class="estrelas">
-        <img src="./images/Estrela.png" id="5-1" alt="Estrela">
-        <img src="./images/Estrela.png" id="5-2" alt="Estrela">
-        <img src="./images/Estrela.png" id="5-3" alt="Estrela">
-        <img src="./images/Estrela.png" id="5-4" alt="Estrela">
-        <img src="./images/Estrela.png" id="5-5" alt="Estrela">
+    <div class="musica">
+        <span>Musica Foda</span>
+        <div class="estrelas">
+            <img src="./images/Estrela.png" id="5-1" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
+            <img src="./images/Estrela.png" id="5-2" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
+            <img src="./images/Estrela.png" id="5-3" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
+            <img src="./images/Estrela.png" id="5-4" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
+            <img src="./images/Estrela.png" id="5-5" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
+        </div>
     </div>
 </body>
 
