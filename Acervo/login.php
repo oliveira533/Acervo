@@ -1,10 +1,7 @@
 <?php
 session_start();
-try {
-        $conexao = mysqli_connect("localhost", "Aluno2DS", "SenhaBD2", "ACERVO");
-} catch (Exception $erro) {
-        $conexao = mysqli_connect("localhost", "root", '', "acervo");
-}
+require("conexao.php");
+//$conexao = mysqli_connect("localhost", "root", '', "acervo");
 $cSQL = "SELECT USRCODIGO, USRNOME" .
         "  FROM USUARIOS" .
         " WHERE '" . $_GET['txbEmail'] . "' IN (USRLOGIN, USREMAIL)" .

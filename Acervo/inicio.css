@@ -1,6 +1,23 @@
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 body {
-	background-image: linear-gradient(#036483, #6bc3d6);
+	background-image: linear-gradient(45deg, #177397, #6cdef8);
 	font-family: Arial, Helvetica, sans-serif;
+	background-size: 200% 200%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+html {
+	font-size: 10px;
 }
 header {
 	height: 10vh;
@@ -8,11 +25,26 @@ header {
 	display: flex;
 	flex-direction: row;
 }
-div {
+input {
+	transition: 0.3s;
+}
+input:focus {
+	font-size: 3.5rem;
+}
+form {
+	padding-top: 0.8em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50vw;
+	margin-right: 2em;
+}
+.boxMusic {
 	height: 24vw;
 	padding-top: 5px;
 	margin-bottom: 10px;
 	display: flex;
+	align-items: flex-start;
 	flex-wrap: nowrap;
 	flex-direction: row;
 }
@@ -21,18 +53,18 @@ article {
 	width: 64%;
 	position: relative;
 	left: 12.5%;
-	font-size: 24px;
+	font-size: 2.4rem;
 	margin: 4px;
 }
 footer {
 	height: 15%;
 	width: 99%;
-	font-size: 24px;
+	font-size: 2.4rem;
 }
 section {
 	width: 23%;
 	height: 70%;
-	font-size: 3vw;
+	font-size: 4rem;
 	text-align: center;
 }
 img {
@@ -41,6 +73,8 @@ img {
 }
 ul {
 	list-style: none;
+	margin-top: 0;
+	align-items: baseline;
 }
 
 li {
@@ -52,6 +86,11 @@ span {
 	color: #ffffff;
 }
 li > a {
+	overflow: hidden;
+	text-overflow: '...';
+	box-sizing: border-box;
+	height: 11.7%;
+	font-size: 2.3rem;
 	display: block;
 	text-align: center;
 	text-decoration: none;
@@ -62,8 +101,8 @@ li > a {
 	transition: 0.5s;
 }
 li > a:hover {
-	font-size: 28px;
-	color: #09ffa1;
+	height: 35%;
+	max-height: max-content;
 }
 .logo {
 	display: inline-block;
@@ -77,20 +116,25 @@ li > a:hover {
 	margin-right: 10px;
 	margin-left: 50px;
 }
-
+#txbPesquisa {
+	border: 0.4rem solid #000;
+}
 header > a > img {
 	top: 10px;
 }
 p {
+	display: flex;
+	align-items: center;
+
 	margin-top: 5px;
 	color: #ffffff;
 	border-radius: 20px;
 	background: #022c3a;
-	height: 5vh;
-	width: 20vw;
+	font-weight: bold;
+	min-height: 80%;
 	text-align: center;
 	margin-left: 10vw;
-	font-size: 2vw;
+	font-size: 2.7rem;
 }
 .user {
 	margin-left: 0;
@@ -98,33 +142,31 @@ p {
 	height: 100%;
 	transition: 0.5s;
 }
+.usuario {
+	display: flex;
+	flex-direction: column;
+}
+.usuario a {
+	height: 100%;
+}
+.username {
+	text-decoration: none;
+	text-align: center;
+	color: #000000;
+	font-size: 2.5rem;
+	transition: 0.5s;
+}
 .username:hover {
 	color: #09ffa1;
-	font-size: 2.2vw;
+	font-size: 2.7rem;
 }
 .user:hover {
-	width: 9vw;
-	height: 110%;
+	transform: scale(1.2, 1.2);
 }
 input {
 	width: 25vw;
-	font-size: 24px;
+	font-size: 2.4rem;
 	border-radius: 10px;
-}
-
-.username {
-	text-decoration: none;
-	margin: 5px;
-	color: #000000;
-	font-size: 2vw;
-	transition: 0.5s;
-}
-form {
-	padding-top: 8px;
-	display: flex;
-	align-items: flex-start;
-	width: 50vw;
-	margin-right: 20px;
 }
 header > a {
 	width: 10vw;

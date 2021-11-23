@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="cadastro.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Cadastrar Dados</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro</title>
 </head>
 
 <body>
@@ -27,11 +27,17 @@
         </nav>
         <div>
             <?php
-            $form = $_GET['form'];
-            echo "<h2>$form</h2>";
-            include("./Cadastros/frm" . $_GET['form'] . ".php");
+            require("conexao.php");
+
+            if (isset($_GET['form'])) {
+                $form = $_GET['form'];
+                echo "<h2>$form</h2>";
+                include("./Cadastros/frm" . $_GET['form'] . ".php");
+            }
             ?>
         </div>
+        <a href="index.php"><img src="https://www.svgrepo.com/show/40892/home-button.svg" alt="" width="40px" /></a>
+
     </main>
 </body>
 

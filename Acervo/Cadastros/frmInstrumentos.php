@@ -12,7 +12,7 @@ $_SESSION['form'] = "Instrumento";
 </head>
 
 <body>
-    <form action="./Cadastros/cadastrar.php">
+    <form action="./Cadastros/cadastrar.php" method="POST">
         <input type="text" name="txbNome" id="txbNome">
         <select name="slcTipo" id="slcTipo">
             <option value="1">Cordas</option>

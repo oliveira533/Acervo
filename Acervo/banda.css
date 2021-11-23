@@ -1,75 +1,67 @@
 * {
+	font-family: sans-serif;
 	border: 0;
-	font-size: 17px;
+	list-style-type: none;
 }
 body {
-	background: #00022e;
+	background: #113cfc;
 	color: #fff;
 }
 section {
 	display: flex;
+	flex-wrap: nowrap;
 	flex-direction: row;
 }
 nav {
-	position: relative;
-	width: 96%;
-	height: auto;
-
-	background: #0f9a68;
+	font-size: 2.4vh;
+	width: 100%;
+	height: max-content;
+	background: #1597e5;
 	color: black;
-	margin-right: 0%;
-	min-height: 72%;
 }
-.banda {
-	position: relative;
-	width: 62px;
-	height: 54px;
-	left: 5px;
-	top: 954px;
+.img-home {
+	width: 5rem;
+	height: 5rem;
+	float: right;
+	position: fixed;
+	top: 90%;
+	left: 94%;
+	filter: invert(1);
 }
 .imgbanda {
-	position: relative;
-
-	width: 97%;
-	height: auto;
-
+	width: 96%;
 	border: 10px solid #000000;
 	box-sizing: border-box;
 }
 article {
-	width: 99.5%;
-	height: 71%;
 	border: solid 2px black;
 	display: flex;
+	height: 80%;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
 footer {
-	width: 99.5%;
-	height: 28%;
 	border: solid black;
-	background: #0f9a68;
+	background: #1597e5;
 	text-align: center;
 }
 header {
 	text-align: center;
 	color: black;
-	font-size: 30px;
-	margin-top: 10px;
+	font-size: 2.2rem;
 }
 .pintegre {
+	font-size: 1.3rem;
 	border: solid black;
 	margin: 10px 10px 10px 10px;
 }
 
 .esquerda {
-	width: 29.5vw;
-	height: 95vh;
+	max-width: 40%;
 }
 .direita {
-	width: 66vw;
-	height: 100vh;
+	min-width: 66%;
 }
 .disco > img {
 	margin-right: 33%;
@@ -82,4 +74,11 @@ header {
 	width: 20%;
 	margin-right: 4%;
 	margin-left: 7.5%;
+}
+.btn-home {
+	display: block;
+}
+.capa{
+	width: 100px;
+	height: 90px;
 }

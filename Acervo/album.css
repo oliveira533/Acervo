@@ -1,13 +1,37 @@
 * {
 	border: 0;
 }
+html {
+	font-size: 10px;
+}
+:root {
+	--background: linear-gradient(#1597e5, #69dadb);
+}
+body {
+	height: 100%;
+	background: var(--background);
+}
 .musicas {
-	border: solid 2px #f00;
-	background: #27a578;
+	background: transparent;
 }
 .descricao {
-	border: solid 2px #0f0;
-	background: #00022e;
+	font-size: 2.4rem;
+	min-height: 80vh;
+	background: #0f38ce8f;
+	color: #000;
+	font-weight: 600;
+}
+.descricao h5 {
+	font-weight: 900;
+	font-size: 3.8rem;
+}
+.descricao .card-img-top {
+	min-width: 100%;
+	min-height: 20%;
+	max-height: 25%;
+}
+.descricao a {
+	color: #c71919;
 }
 .margin {
 	padding-top: 1%;
@@ -26,15 +50,15 @@ ul {
 
 /* Track */
 ::-webkit-scrollbar-track {
-	background: #27a578;
+	background: var(--background);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: #000453;
+	background: #113cfc;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #00022e;
+	background: #193498;
 }
