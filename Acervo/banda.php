@@ -31,7 +31,7 @@ mysqli_free_result($consulta);
 <body>
 	<section>
 		<div class="esquerda">
-			<img src="#" class="imgbanda" />
+
 			<nav>
 				<h5><?php echo $banda ?></h5>
 				<p>
@@ -47,15 +47,14 @@ mysqli_free_result($consulta);
 		</div>
 		<div class="direita">
 			<article>
-				<a class="disco"><img src="#" /> </a>
-				<a class="disco"><img src="#" /> </a>
-				<a class="disco"><img src="#" /> </a>
-				<a class="disco"><img src="#" /> </a>
-				<a class="disco"><img src="#" /> </a>
-				<a class="disco"><img src="#" /> </a>
-				<a class="disco"><img src="#" /> </a>
-				<a class="disco"><img src="#" /> </a>
-				<a class="disco"><img src="#" /> </a>
+				<?php
+				$sql = "SELECT ALBCODIGO, ALBNOME, IFNULL(ALBCAPA, 'semfoto.png') CAPA FROM ALBUNS LEFT JOIN BANDAS ON ALBBANDA = BDSCODIGO WHERE BDSNOME LIKE '%" . $banda . "%' ORDER BY ALBCODIGO";
+				$consulta = mysqli_query($conexao, $sql);
+				while ($vReg = mysqli_fetch_assoc($consulta)) {
+					$nome = $vReg['ALBNOME'];
+					echo "<li><img src='" . "./images/" . $vReg["CAPA"] . "' class='capa'/> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
+				}
+				?>
 			</article>
 			<?php if ($bIsBanda) { ?>
 				<footer>

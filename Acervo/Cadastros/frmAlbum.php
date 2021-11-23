@@ -6,7 +6,7 @@ $_SESSION['form'] = "Album";
 <html>
 
 <body>
-    <form action="./Cadastros/cadastrar.php" onsubmit="fnLimpa()">
+    <form action="./Cadastros/cadastrar.php" onsubmit="fnLimpa()" method="POST" enctype="multipart/form-data">
         <label for="NoAl">Nome</label><input type="text" name="NoAl" id="NoAl">
         <label for="txbgravadora">Gravadora</label><select name="txbgravadora">
             <?php

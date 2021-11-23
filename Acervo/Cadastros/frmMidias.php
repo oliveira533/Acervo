@@ -15,7 +15,7 @@ $_SESSION['form'] = "Midia";
 </style>
 
 <body>
-    <form action="./Cadastros/cadastrar.php">
+    <form action="./Cadastros/cadastrar.php" method="POST">
         <label for="txbNome">Nome</label><input type="text" name="txbNome" id="txbNome"><br>
         <p>A mídia é online? </p>
 

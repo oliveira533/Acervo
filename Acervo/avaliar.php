@@ -1,0 +1,11 @@
+<?php
+header("content-type:application/json");
+
+require("conexao.php");
+
+mysqli_query($conexao, "INSERT INTO CLASSIFICACAO (CLSUSUARIO, CLSMUSICA, CLSNOTA) VALUES (" . $_GET["usuario"] . ", "
+    . $_GET["musica"] . ", " . $_GET["nota"] . ")");
+
+$oJson->nota = mysqli_fetch_assoc(mysqli_query($conexao, "SELECT AVG(CLSNOTA) NOTA FROM CLASSIFICACAO WHERE CLSMUSICA = " . $_GET["musica"]))["NOTA"];
+
+echo json_encode($oJson);

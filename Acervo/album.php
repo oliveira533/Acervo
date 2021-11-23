@@ -5,10 +5,10 @@ if (isset($_GET['album']))
 else
 	$album = 'Yellow Brick Road';
 $sql = "SELECT ALBNOME, DATE_FORMAT(ALBDTLANCAMENTO, '%d/%m/%Y'), IFNULL(GRVNOME, 'SEM GRAVADORA'),
-	IFNULL(ARTNOME,IFNULL(BDSNOME, 'Mais de 1 Criador')), GNRNOME, MDSNOME FROM ALBUNS LEFT JOIN GRAVADORAS ON ALBCODIGO = GRVCODIGO 
+	IFNULL(ARTNOME,IFNULL(BDSNOME, 'Mais de 1 Criador')), GNRNOME, MDSNOME, ALBCAPA FROM ALBUNS LEFT JOIN GRAVADORAS ON ALBCODIGO = GRVCODIGO 
 	LEFT JOIN GENEROS ON ALBGENERO = GNRCODIGO LEFT JOIN MIDIAS ON ALBMIDIA = MDSCODIGO LEFT JOIN ARTISTAS on ALBARTISTA = ARTCODIGO 
 	LEFT JOIN BANDAS on ALBBANDA = BDSCODIGO WHERE ALBNOME LIKE '%$album%';";
-	// select para trazer a gravadora, genero, midias, artista e banda de um album    
+// select para trazer a gravadora, genero, midias, artista e banda de um album    
 $consulta = mysqli_query($conexao, $sql);
 //echo $sql;
 $aDados = mysqli_fetch_array($consulta);
@@ -34,7 +34,7 @@ $aDados = mysqli_fetch_array($consulta);
 							col-3 col-sm-3 col-md-3 col-lg-3
 							descricao
 						">
-					<img src="#" class="card-img-top" alt="..." />
+					<img src="./images/<?php echo $aDados["ALBCAPA"] ?>" class="card-img-top" alt="..." />
 					<div class="card-body">
 						<h5 class="card-title"><?php echo $album ?></h5>
 						<p class="card-text margin2">Banda/Artista <br>
@@ -63,7 +63,7 @@ $aDados = mysqli_fetch_array($consulta);
 								$consulta = mysqli_query($conexao, $sql);
 								while ($vReg = mysqli_fetch_assoc($consulta)) {
 									echo '<li>' . $vReg['MSCNOME'] . '</li>';
-										// select para trazer as musicas do album   
+									// select para trazer as musicas do album   
 
 								}
 								?>

@@ -44,11 +44,11 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 		<article>
 			<ul>
 				<?php
-				$sql = 'SELECT ALBCODIGO, ALBNOME FROM ALBUNS ORDER BY ALBCODIGO DESC LIMIT 0, 4';
+				$sql = "SELECT ALBCODIGO, ALBNOME, IFNULL(ALBCAPA, 'semfoto.png') CAPA FROM ALBUNS ORDER BY ALBCODIGO DESC LIMIT 0, 4";
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
 					$nome = $vReg['ALBNOME'];
-					echo "<li><img src='#' /> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
+					echo "<li><img src='" . "./images/" . $vReg["CAPA"] . "' /> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
 				}
 				?>
 			</ul>
@@ -72,11 +72,11 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 					$num3 = random_int(1, $nMaxAlbuns);
 					$num4 = random_int(1, $nMaxAlbuns);
 				}
-				$sql = "SELECT ALBCODIGO, ALBNOME FROM ALBUNS WHERE ALBCODIGO = $num1 OR ALBCODIGO = $num2 OR ALBCODIGO = $num3 OR ALBCODIGO = $num4";
+				$sql = "SELECT ALBCODIGO, ALBNOME, IFNULL(ALBCAPA, 'semfoto.png') CAPA FROM ALBUNS WHERE ALBCODIGO = $num1 OR ALBCODIGO = $num2 OR ALBCODIGO = $num3 OR ALBCODIGO = $num4";
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
 					$nome = $vReg['ALBNOME'];
-					echo "<li><img src='#' /> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
+					echo "<li><img src='" . "./images/" . $vReg["CAPA"] . "' /> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
 				}
 				?>
 			</ul>
@@ -104,11 +104,11 @@ $nMaxGeneros = (int)mysqli_fetch_assoc(mysqli_query($conexao, "SELECT GNRCODIGO 
 		<article>
 			<ul>
 				<?php
-				$sql = "SELECT ALBNOME FROM ALBUNS WHERE ALBGENERO = " . $sGenero["GNRCODIGO"] . " LIMIT 0,4";
+				$sql = "SELECT ALBNOME, IFNULL(ALBCAPA, 'semfoto.png') CAPA FROM ALBUNS WHERE ALBGENERO = " . $sGenero["GNRCODIGO"] . " LIMIT 0,4";
 				$consulta = mysqli_query($conexao, $sql);
 				while ($vReg = mysqli_fetch_assoc($consulta)) {
 					$nome = $vReg['ALBNOME'];
-					echo "<li><img src='#' /> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
+					echo "<li><img src='" . "./images/" . $vReg["CAPA"] . "' /> <a href='album.php?album=" . urlencode($nome) . "'>$nome</a></li>\n";
 				}
 				?>
 			</ul>

@@ -1,6 +1,7 @@
 * {
 	font-family: sans-serif;
 	border: 0;
+	list-style-type: none;
 }
 body {
 	background: #113cfc;
@@ -76,4 +77,8 @@ header {
 }
 .btn-home {
 	display: block;
+}
+.capa {
+	width: 100px;
+	height: 90px;
 }
