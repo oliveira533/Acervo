@@ -1,8 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION["artistas"]);
-var_dump($_SESSION["bandas"]);
-var_dump($_SESSION["albuns"]);
+
 ?>
 <html>
 
