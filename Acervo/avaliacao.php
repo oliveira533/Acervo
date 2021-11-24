@@ -10,6 +10,7 @@ require("conexao.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="avaliacao.css">
+    <script src="avaliacao.js"></script>
     <title>Avaliar Musicas</title>
 </head>
 
@@ -18,16 +19,16 @@ require("conexao.php");
     $sql = "SELECT MSCCODIGO, MSCNOME FROM MUSICAS";
     $consulta = mysqli_query($conexao, $sql);
     while ($vReg = mysqli_fetch_assoc($consulta)) {
-      echo "<div class='musica'>
-      <span>".$vReg["MSCNOME"]."</span>
-      <div class='estrelas'>
-          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-1' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
-          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-2' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
-          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-3' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
-          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-4' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
-          <img src=' ./images/Estrela.png' id='".$vReg["MSCCODIGO"]."-5' alt='Estrela' onclick='fnAvalia(this.id, ". $_SESSION["USRCODIGO"]. ")'>
-      </div>
-  </div>";
+        echo "<div class='musica'>
+        <span>" . $vReg["MSCNOME"] . "</span>
+        <div class='estrelas'>
+            <img src=' ./images/Estrela.png' id='" . $vReg["MSCCODIGO"] . "-1' alt='Estrela' onclick='fnAvalia(this.id, " . $_SESSION["USRCODIGO"] . ")'>
+            <img src=' ./images/Estrela.png' id='" . $vReg["MSCCODIGO"] . "-2' alt='Estrela' onclick='fnAvalia(this.id, " . $_SESSION["USRCODIGO"] . ")'>
+            <img src=' ./images/Estrela.png' id='" . $vReg["MSCCODIGO"] . "-3' alt='Estrela' onclick='fnAvalia(this.id, " . $_SESSION["USRCODIGO"] . ")'>
+            <img src=' ./images/Estrela.png' id='" . $vReg["MSCCODIGO"] . "-4' alt='Estrela' onclick='fnAvalia(this.id, " . $_SESSION["USRCODIGO"] . ")'>
+            <img src=' ./images/Estrela.png' id='" . $vReg["MSCCODIGO"] . "-5' alt='Estrela' onclick='fnAvalia(this.id, " . $_SESSION["USRCODIGO"] . ")'>
+        </div>
+    </div>";
     }
     mysqli_free_result($consulta);
     ?>
