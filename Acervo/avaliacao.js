@@ -5,7 +5,6 @@ const fnAvalia = async (id, usuario) => {
 			id.split('-')[1]
 		}`
 	);
-
 	const respostaJson = await resposta.json();
 	let imagens = new Array();
 	for (let i = 1; i <= 5; i++) {
