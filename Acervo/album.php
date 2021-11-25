@@ -28,7 +28,7 @@ $aDados = mysqli_fetch_array($consulta);
 </head>
 
 <body>
-	<div class="musica-geral" id="musica-geral">
+	<!-- 	<div class="musica-geral" id="musica-geral">
 		<div class="informacoes-musica">
 			<button class="fechar" onclick="fnFechar()">X</button>
 
@@ -51,7 +51,7 @@ $aDados = mysqli_fetch_array($consulta);
 				<img src=' ./images/EstrelaAzul.png' id='1-5' alt='Estrela' onclick='fnAvalia(this.id, 12)'>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<section>
 		<div class="container-fluid">
 			<div class="row">
