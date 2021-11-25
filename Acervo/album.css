@@ -38,11 +38,23 @@ body {
 }
 li {
 	list-style: none;
+	text-decoration: underline;
 	font-size: 30px;
+	cursor: pointer;
+}
+li:hover {
+	transform: scale(1.2);
+}
+h3 {
+	all: initial;
+	font-family: sans-serif;
+	font-size: 4rem;
+	font-weight: bold;
 }
 ul {
 	text-align: center;
 }
+
 /* width */
 ::-webkit-scrollbar {
 	width: 10px;
