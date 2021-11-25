@@ -20,5 +20,11 @@ span {
 .musica {
 	display: inline-block;
 	width: 12%;
-	margin-right: 2%;
+	margin: 2%;
+}
+form {
+	float: right;
+}
+form > * {
+	font-size: 1.8rem;
 }

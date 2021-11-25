@@ -17,7 +17,8 @@ require("conexao.php");
 <body>
     <form action=""><input type="text" name="pesquisa"><button>Pesquisar</button></form>
     <?php
-    $sql = "SELECT MSCCODIGO, MSCNOME FROM MUSICAS";
+    $pesquisa = isset($_GET["pesquisa"]) ? $_GET["pesquisa"] : "";
+    $sql = "SELECT MSCCODIGO, MSCNOME FROM MUSICAS WHERE MSCNOME LIKE '%" . $pesquisa . "%'";
     $consulta = mysqli_query($conexao, $sql);
     while ($vReg = mysqli_fetch_assoc($consulta)) {
         echo "<div class='musica'>
@@ -33,16 +34,7 @@ require("conexao.php");
     }
     mysqli_free_result($consulta);
     ?>
-    <div class="musica">
-        <span>Musica Foda</span>
-        <div class="estrelas">
-            <img src="./images/Estrela.png" id="5-1" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
-            <img src="./images/Estrela.png" id="5-2" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
-            <img src="./images/Estrela.png" id="5-3" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
-            <img src="./images/Estrela.png" id="5-4" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
-            <img src="./images/Estrela.png" id="5-5" alt="Estrela" onclick="fnAvalia(this.id, <?php echo $_SESSION["USRCODIGO"] ?>)">
-        </div>
-    </div>
+
 </body>
 
 </html>
