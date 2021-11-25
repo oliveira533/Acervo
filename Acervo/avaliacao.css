@@ -17,3 +17,8 @@ html {
 span {
 	font-size: 2.5rem;
 }
+.musica {
+	display: inline-block;
+	width: 12%;
+	margin-right: 2%;
+}

@@ -15,6 +15,7 @@ require("conexao.php");
 </head>
 
 <body>
+    <form action=""><input type="text" name="pesquisa"><button>Pesquisar</button></form>
     <?php
     $sql = "SELECT MSCCODIGO, MSCNOME FROM MUSICAS";
     $consulta = mysqli_query($conexao, $sql);
