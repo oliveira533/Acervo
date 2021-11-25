@@ -59,10 +59,12 @@ $aDados = mysqli_fetch_array($consulta);
 							<ul>
 								<h3>Musicas</h3>
 								<?php
-								$sql = "SELECT MSCCODIGO, MSCNOME, MSCDURACAO, MSCGENERO, IFNULL(ALBARTISTA, IFNULL(ALBBANDA, 'COLETANEA') CRIA, MSCLETRA, MSCVIDEO, MSCAUDIO FROM MUSICAS";
+								$sql = "SELECT MSCCODIGO, MSCNOME, MSCDURACAO, MSCGENERO, IFNULL(MSCARTISTA, IFNULL(MSCBANDA, 'COLETANEA')) CRIA, MSCLETRA, MSCVIDEO, MSCAUDIO FROM ALBUNS JOIN FAIXAS ON ALBCODIGO = FXSALBUM JOIN MUSICAS on FXSMUSICA = MSCCODIGO	WHERE ALBNOME LIKE '%$album%'";
 								$consulta = mysqli_query($conexao, $sql);
+								
+
 								while ($vReg = mysqli_fetch_assoc($consulta)) {
-									echo "<li id='". $vReg['MSCCODIGO'] ."'data-nome=" . $vReg['MSCNOME'] ." data-duracao=" . $vReg['MSCDURACAO'] ." data-genero=" . $vReg['MSCGENERO'] ." data-banda=" . $vReg['MSCBANDA'] ." data-criador=" . $vReg['CRIA'] ." data-letra=" . $vReg['MSCLETRA'] ." data-video=" . $vReg['MSCVIDEO'] ." data-audio=" . $vReg['MSCAUDIO'] ."></li>";
+									echo "<li id='". $vReg['MSCCODIGO'] ."'data-nome=" . $vReg['MSCNOME'] ." data-duracao=" . $vReg['MSCDURACAO'] ." data-genero=" . $vReg['MSCGENERO'] ." data-criador=" . $vReg['CRIA'] ." data-letra=" . $vReg['MSCLETRA'] ." data-video=" . $vReg['MSCVIDEO'] ." data-audio=" . $vReg['MSCAUDIO'] .">".$vReg['MSCNOME']."</li>";
 									// select para trazer as musicas do album   
 
 								}
