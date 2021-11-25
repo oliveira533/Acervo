@@ -1,14 +1,10 @@
 let resposta2;
 const fnAvalia = async (id, usuario) => {
-	const urlApi = document.URL.replace('avaliacao.php', 'avaliar.php').split(
-		'?'
-	)[0];
 	const resposta = await fetch(
-		`${urlApi}?usuario=${usuario}&musica=${id.split('-')[0]}&nota=${
+		`avaliar.php?usuario=${usuario}&musica=${id.split('-')[0]}&nota=${
 			id.split('-')[1]
 		}`
 	);
-	console.log(urlApi);
 	resposta2 = resposta;
 	const respostaJson = await resposta.json();
 	let imagens = new Array();

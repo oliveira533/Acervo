@@ -1,5 +1,6 @@
 html {
 	font-size: 10px;
+	font-family: sans-serif;
 }
 
 .estrelas img {
@@ -27,4 +28,15 @@ form {
 }
 form > * {
 	font-size: 1.8rem;
+}
+a {
+	position: fixed;
+	top: 90%;
+	left: 95.5%;
+}
+a > img {
+	width: 7rem;
+}
+p {
+	font-size: 1.6rem;
 }

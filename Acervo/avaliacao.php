@@ -16,6 +16,8 @@ require("conexao.php");
 
 <body>
     <form action=""><input type="text" name="pesquisa"><button>Pesquisar</button></form>
+    <a class="btn-home" href="index.php"><img class="img-home" src="https://www.svgrepo.com/show/40892/home-button.svg" /></a>
+
     <?php
     $pesquisa = isset($_GET["pesquisa"]) ? $_GET["pesquisa"] : "";
     $sql = "SELECT MSCCODIGO, MSCNOME FROM MUSICAS WHERE MSCNOME LIKE '%" . $pesquisa . "%'";
