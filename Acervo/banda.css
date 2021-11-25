@@ -82,3 +82,7 @@ header {
 	width: 100px;
 	height: 90px;
 }
+
+li a {
+	color: #fff;
+}
