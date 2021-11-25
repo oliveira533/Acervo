@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("conexao.php");
 if (isset($_GET['album']))
 	$album = urldecode($_GET['album']);
@@ -42,6 +43,13 @@ $aDados = mysqli_fetch_array($consulta);
 				aliquam neque numquam molestiae ducimus?</p>
 			<h6>Link do video: youtube.com</h6>
 			<h6>Link do audio: youtube.com</h6>
+			<div class="estrelas">
+				<img src=' ./images/EstrelaAzul.png' id='1-1' alt='Estrela' onclick='fnAvalia(this.id, 12)'>
+				<img src=' ./images/EstrelaAzul.png' id='1-2' alt='Estrela' onclick='fnAvalia(this.id, 12)'>
+				<img src=' ./images/EstrelaAzul.png' id='1-3' alt='Estrela' onclick='fnAvalia(this.id, 12)'>
+				<img src=' ./images/EstrelaAzul.png' id='1-4' alt='Estrela' onclick='fnAvalia(this.id, 12)'>
+				<img src=' ./images/EstrelaAzul.png' id='1-5' alt='Estrela' onclick='fnAvalia(this.id, 12)'>
+			</div>
 		</div>
 	</div>
 	<section>
@@ -81,7 +89,7 @@ $aDados = mysqli_fetch_array($consulta);
 								$sql = "SELECT MSCCODIGO, MSCNOME, MSCDURACAO, GNRNOME, IFNULL(ARTNOME, IFNULL(BDSNOME, 'COLETANEA')) CRIA, MSCLETRA, MSCVIDEO, MSCAUDIO FROM ALBUNS JOIN FAIXAS ON ALBCODIGO = FXSALBUM JOIN MUSICAS ON FXSMUSICA = MSCCODIGO LEFT JOIN BANDAS ON MSCBANDA = BDSCODIGO LEFT JOIN ARTISTAS ON MSCARTISTA = ARTCODIGO JOIN GENEROS ON MSCGENERO = GNRCODIGO WHERE ALBNOME LIKE '%$album%'";
 								$consulta = mysqli_query($conexao, $sql);
 								while ($vReg = mysqli_fetch_assoc($consulta)) {
-									echo "<li id='" . $vReg['MSCCODIGO'] . "'data-nome='" . $vReg['MSCNOME'] . "' data-duracao='" . $vReg['MSCDURACAO'] . "' data-genero='" . $vReg['GNRNOME'] . "' data-criador='" . $vReg['CRIA'] . "' data-letra='" . $vReg['MSCLETRA'] . "' data-video='" . $vReg['MSCVIDEO'] . "' data-audio='" . $vReg['MSCAUDIO'] . "' onclick=\"fnMostraMusica(this.dataset)\">" . $vReg['MSCNOME'] . "</li>";
+									echo "<li id='" . $vReg['MSCCODIGO'] . "'data-id='" . $vReg["MSCCODIGO"] . "'  data-nome='" . $vReg['MSCNOME'] . "' data-duracao='" . $vReg['MSCDURACAO'] . "' data-genero='" . $vReg['GNRNOME'] . "' data-criador='" . $vReg['CRIA'] . "' data-letra='" . $vReg['MSCLETRA'] . "' data-video='" . $vReg['MSCVIDEO'] . "' data-audio='" . $vReg['MSCAUDIO'] . "' data-user='" . $_SESSION["USRCODIGO"] . "'  onclick=\"fnMostraMusica(this.dataset)\">" . $vReg['MSCNOME'] . "</li>";
 									// select para trazer as musicas do album   
 
 								}

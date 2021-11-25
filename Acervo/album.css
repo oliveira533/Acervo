@@ -65,7 +65,7 @@ ul {
 	height: 100%;
 }
 .informacoes-musica {
-	background-color: #90f2ff;
+	background-color: rgb(144, 242, 255);
 	border-radius: 50px;
 	padding: 5%;
 	margin-top: 10%;
@@ -110,6 +110,25 @@ ul {
 	color: #c71919;
 	width: 8rem;
 	left: 70%;
+}
+.estrelas {
+	display: inline;
+}
+.estrelas img {
+	display: inline;
+	background-color: #fff;
+
+	width: 15%;
+}
+
+.estrelas img:hover ~ img {
+	background-color: #fff;
+}
+.estrelas:hover img {
+	background-color: rgb(245, 223, 101);
+}
+.estrelas p {
+	font-size: 2.5rem;
 }
 /* width */
 ::-webkit-scrollbar {
