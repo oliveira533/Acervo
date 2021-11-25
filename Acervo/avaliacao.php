@@ -20,7 +20,7 @@ require("conexao.php");
 
     <?php
     $pesquisa = isset($_GET["pesquisa"]) ? $_GET["pesquisa"] : "";
-    $sql = "SELECT MSCCODIGO, MSCNOME FROM MUSICAS WHERE MSCNOME LIKE '%" . $pesquisa . "%'";
+    $sql = "SELECT MSCCODIGO, MSCNOME FROM MUSICAS WHERE MSCNOME LIKE '%" . $pesquisa . "%' ORDER BY MSCNOME ASC";
     $consulta = mysqli_query($conexao, $sql);
     while ($vReg = mysqli_fetch_assoc($consulta)) {
         echo "<div class='musica'>
