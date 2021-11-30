@@ -1,7 +1,15 @@
-# Acervo Zip
-Acervo de musicas
+# Acervo Banana de Calcinha
 
-## oliveira: album ##
-## vargas: artista ##
-## cauã: login e registro ##
-## os 3: design e interatividade ##
+## Membros do Grupo
+
+### Cauã Alencar Rojas Romero
+
+### Gustavo de Oliveira
+
+### Juan Vargas Macri
+
+Notas:  
+
+- Todas as paginas podem ser acessadas somente pela navegação normal no site
+
+- Mude o arquivo conexão.php para mudar a conexão padrão em todas as paginas
