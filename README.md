@@ -10,6 +10,8 @@
 
 Notas:  
 
-- Todas as paginas podem ser acessadas somente pela navegação normal no site
+- Todas as paginas podem ser acessadas somente pela navegação normal no site.
 
-- Mude o arquivo conexão.php para mudar a conexão padrão em todas as paginas
+- Mude o arquivo conexão.php para mudar a conexão padrão em todas as paginas.
+
+- O acervo se localiza dentro da pasta acervo.
