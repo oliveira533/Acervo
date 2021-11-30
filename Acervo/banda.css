@@ -13,7 +13,8 @@ section {
 	flex-direction: row;
 }
 nav {
-	font-size: 2.4vh;
+	font-size: 1.5rem;
+	border-radius: 5%;
 	width: 100%;
 	height: max-content;
 	background: #1597e5;
@@ -35,10 +36,22 @@ nav {
 }
 article {
 	border: solid 2px black;
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	height: 80%;
 	flex-direction: row;
 	flex-wrap: wrap;
+}
+li a {
+	display: block;
+	text-align: center;
+	color: #fff;
+	font-size: 1.3rem;
+}
+li img {
+	display: block;
+	width: 60%;
+	margin: auto;
 }
 
 footer {
@@ -59,6 +72,7 @@ header {
 
 .esquerda {
 	max-width: 40%;
+	display: flex;
 }
 .direita {
 	min-width: 66%;
@@ -81,8 +95,4 @@ header {
 .capa {
 	width: 100px;
 	height: 90px;
-}
-
-li a {
-	color: #fff;
 }
